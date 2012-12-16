@@ -1,4 +1,5 @@
-
+ t = 'Node2Blog';
+ p = 'narwhal';
 /**
  * Module dependencies.
  */
@@ -9,8 +10,7 @@ var post = mongoose.model('post');
 
  //change t to whatever you want your blog to be called
  //change p to whatever you want your password to be
- t = 'Node2Blog';
- p = 'narwhal';
+
  admin = null;
  var error;
 
@@ -63,6 +63,7 @@ app.get('/about', function(req, res) {
   res.render('about', { title: t, admin:req.session.admin});
       
 });
+
 ///////////////////
 
 ///////post////////
