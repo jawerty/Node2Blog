@@ -62,7 +62,7 @@ block wrapper_content
 </pre>
 <p>Now modify the get functions in the 'blog.js' file.</p>
 
-<label><b>After</b> adding the code</label>
+<label>The new modified code</label>
 <pre><code>
 ////////get////////
 app.get('/', home.index);
@@ -81,7 +81,7 @@ app.get('/about', function(req, res) {
       
 });
 
-//The code your adding
+//The code you added
 app.get('/new-page-name', function(req, res) {
   res.render('new_page_name', { title: t, admin:req.session.admin});
 });
