@@ -95,4 +95,4 @@ app.get('/new-page-name', function(req, res) {
 
 <p>Congratulations you now have a working blog suitable to your basic blogger needs.</p>
 <br>
-<p style='font-size:230%'><b>Contact the developer here</b><br>Email: jawerty210@gmail.com<br>Website: <a href='http://wrightdev.herokuapp.com'>http://wrightdev.herokuapp.com</a></p>
+<h5><b>Contact the developer here</b><br>Email: jawerty210@gmail.com<br>Website: <a href='http://wrightdev.herokuapp.com'>http://wrightdev.herokuapp.com</a></h5>
