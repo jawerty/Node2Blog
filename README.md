@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <h1>Node2Blog</h1>
 <br>
 <p>Node2Blog is a simple and easy to use blog template for the casual blogger. If you want a fast and quick blog setup, then this is the project for you. The blog is built with Node.js, Express.js, and Mongodb (with the mongoose driver). Instructions for building a blog with the Node2Blog template is below.</p> 
@@ -16,3 +17,9 @@
 		<b>Mongoose</b> (will be installed with npm)
 	</li>
 </ol>
+=======
+Node2Blog
+=========
+
+A Simple and easy to setup node.js blog template. For the casual blogger
+>>>>>>> ae97baa3878035308db6c0c7d2e07e12596f43fc
