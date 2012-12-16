@@ -59,6 +59,7 @@ block wrapper_content
 		br 
 		p random information
 </code>
+</pre>
 <p>Now modify the get functions in the 'blog.js' file.</p>
 
 <label><b>After</b> adding the code</label>
