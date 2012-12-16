@@ -1,0 +1,15 @@
+extends layout
+
+block wrapper_content
+	.container
+		h1 Delete A Post
+		for post in posts
+			form(method='post')
+				.post
+					h1(style='font-size: 150%;')= post.title
+					label(style='font-size: 100%;font-weight:normal;') Created on -> #{post.date}
+					input(type='hidden', name='title', value='#{post.title}')
+					input(type='hidden', name='time', value='#{post.date}')
+					br
+					br
+					input(type='submit', id='delete_btn', value='DELETE POST') 

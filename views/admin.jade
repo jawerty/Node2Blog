@@ -1,0 +1,17 @@
+extends layout
+
+	
+block wrapper_content
+	.container
+		
+		#formNew
+			h1 New Post
+			form(method='post')
+				input(type='text', name='title', placeholder='Title')
+				br
+				br
+				textarea(placeholder= 'Post information', name='body')
+				br
+				br
+				input(type="submit", value="Create")
+

@@ -1,0 +1,42 @@
+extends layout
+
+block wrapper_content
+  .container
+    for posts in post
+      .post
+
+        h1= posts.title
+        br
+        p= posts.content
+        br
+        br
+        label= posts.date
+        br
+        br
+      p(style='font-size:150%;border-bottom:1px solid #ccc;padding:10px;margin-bottom:20px;margin-top:30px;') Comments
+      form(action='/post/#{posts._id}', style='margin:10px;', method='post')
+        if(comment == null)
+          label No comments
+        else
+          for comments in comment
+            .comments(style='border: 1px solid #ddd;padding:11px;background:#f9f9f9;')
+              br
+              p= comments.comment
+              br
+              label(style='font-size: 120%;') Said by: '#{comments.name}' on #{comments.date}
+              br
+              br
+            br
+        br
+        br
+        br
+        br
+        p Leave a comment:
+        br
+        input(type='text',name='name', placeholder='Name', id='nameComment')
+        br
+        br
+        textarea(id='comment_form', name='comment', placeholder='Comment')br
+        br
+        input(type='submit', id='submitComment')
+        

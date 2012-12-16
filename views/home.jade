@@ -1,0 +1,22 @@
+extends layout
+
+	
+block wrapper_content
+	.container
+
+		for post in posts 
+			if post.content.length < 140
+				- var content = post.content;
+			else
+				- var content = post.content.substring(0, 140) + '...';
+			.post
+				h1
+					a(href='post/#{post._id}')= post.title
+				br
+				p= content
+				br
+				br
+				label Created at: #{post.date}
+				br
+
+				

@@ -1,12 +1,25 @@
 {
-  "name": "application-name",
+  "name": "Node2Blog",
+  "description": "Simple and easy to use blog template for your casual blogger.",
   "version": "0.0.1",
+  "author": {
+    "name": "Jared Wright",
+    "email": "jawerty210@gmail.com",
+    "url": "http://wrightdev.herokuapp.com"
+  },
   "private": true,
+  "engines": {
+    "node": "0.8.x",
+    "npm":  "1.1.x"
+  },
   "scripts": {
-    "start": "node app"
+    "start": "node blog"
   },
   "dependencies": {
     "express": "3.0.0rc5",
-    "jade": "*"
+    "jade": "*",
+    "mongoose":"*",
+    "mongodb":"*"
   }
 }
+

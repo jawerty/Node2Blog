@@ -1,7 +1,53 @@
 doctype 5
 html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    block content
+	head
+		title= title
+		link(rel='stylesheet', href='/stylesheets/reset.css')
+		link(rel='stylesheet', href='/stylesheets/header.css')
+		link(rel='stylesheet', href='/stylesheets/wrapper.css')
+		link(rel='stylesheet', href='/stylesheets/footer.css')
+		link(rel='stylesheet', href='/stylesheets/nav.css')
+
+	body
+		
+		#header
+			#title
+				h1= title
+		
+		#nav
+			ol
+				a(href="/")
+					li Home
+				a(href="/about")
+					li About
+				if(typeof admin == 'undefined')
+					- null
+				else
+					a(href="/admin/new")
+						li Admin-New
+					a(href="/admin/delete")
+						li Admin-Delete
+					a(href="/admin/logout")
+						li Admin-Logout
+
+		#box
+			#content
+				#wrapper
+					block wrapper_content
+				if(typeof posts == 'undefined')
+					#posts_list
+						a(href='/') Back to home
+				else
+					#posts_list
+						p(style='font-size: 150%; font-weight:bold; border-bottom: 1px solid #c1c1c1;padding-bottom: 5px;margin-bottom: 10px;') Latest Posts
+							br
+							pre
+							for post in posts
+								label(style='font-size: 140%') - 
+								a(href='/post/#{post._id}', style='font-size: 130%;')= post.title
+								br
+								br
+			#footer
+				#footer_text
+					p
+						| Using Jared Wright's blog template and running on Node

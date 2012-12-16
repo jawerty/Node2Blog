@@ -1,0 +1,22 @@
+head
+	link(rel='stylesheet', href='/stylesheets/reset.css')
+	link(rel='stylesheet', href='/stylesheets/header.css')
+	link(rel='stylesheet', href='/stylesheets/wrapper.css')
+	link(rel='stylesheet', href='/stylesheets/footer.css')
+	link(rel='stylesheet', href='/stylesheets/nav.css')
+
+body
+	#check
+		form(action='/admin', method='post', style='border:1px solid #bbb;padding: 30px;margin: 140px auto;width:500px;text-align:center;')
+			h1(style='font-size: 70px;font-family: sans-serif;color: #505050;') Admin Login
+			
+			p #{error}
+			br
+			input(type='password', name='password', placeholder='Password', id='admin_check')
+			br
+			br
+			input(type='password', name='passwordconfirm', placeholder='Confirm Password', id='admin_check')
+			br
+			br
+			br 
+			input(type='submit', value='Login', id='submitComment')
