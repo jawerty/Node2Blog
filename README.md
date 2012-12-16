@@ -22,23 +22,23 @@
 <p>In order to initiate the blog server on your local machine, do the following command (You need node.js to run the following command)</p>
 <pre>$ node blog</pre>
 <p>Your blog should be running on your localhost at the 3000 port; go to <a href='http://localhost:3000'>http://localhost:3000</a> to view it. And it should look similar to the screenshot below. </p>
-<br>
-<img src='https://raw.github.com/jawerty/Node2Blog/master/public/images/screenshot1.png'></img>
-<br>
+
+<img src='https://raw.github.com/jawerty/Node2Blog/master/public/images/screenshot1.png' width=300 height=300></img>
+
 <p>If you would like to make a post, go to the the url http://localhost:3000/admin in order to login and use the admin settings. <b>The password is <i>'narwhal'</i> by default</b>. To change the password, go to the file 'blog.js' and change the p variable at the top to your desired password.</p>
 <p><b>Change the t variable in 'blog.js' to your blog title (i.e t = 'Jared's Tech Blog')</b></p>
-<br>
-<img src='https://raw.github.com/jawerty/Node2Blog/master/public/images/screenshot2.png'></img>
-<br>
+
+<img src='https://raw.github.com/jawerty/Node2Blog/master/public/images/screenshot2.png' width=300 height=300></img>
+
 <p>When siccessfully logged in, your navigation bar should have three options appended to it...</p>
 <ol>
 	<li>Admin-New (create a new post)</li>
 	<li>Admin-Delete (delete a post</li>
 	<li>Admin-Logout (logout of admin view)</li>
 </ol>
-<br>
-<img src='https://raw.github.com/jawerty/Node2Blog/master/public/images/screenshot3.png'></img>
-<br>
+
+<img src='https://raw.github.com/jawerty/Node2Blog/master/public/images/screenshot3.png' width=300 height=300></img>
+
 <p>Creating and deleting posts should be self-explanatory; however, creating a new static page similar to the default 'about' page is detailed below</p>
 <h1>Adding a static page</h1>
 <p>To create a new page first you must go to the 'layout.jade' file in the /views folder. Add the following code below the about 'li' tags which are in an 'ol' tag in the #nav div.</p>
@@ -89,9 +89,8 @@ app.get('/new-page-name', function(req, res) {
 </code></pre>
 
 <p>You should now be able to go the the '/new-page-name' route and have a view similar to what is below</p>
-<br>
-<img src='https://raw.github.com/jawerty/Node2Blog/master/public/images/screenshot4.png'><img>
-<br>
+
+<img src='https://raw.github.com/jawerty/Node2Blog/master/public/images/screenshot4.png' width=300 height=300><img>
 
 <p>Congratulations you now have a working blog suitable to your basic blogger needs.</p>
 <br>
