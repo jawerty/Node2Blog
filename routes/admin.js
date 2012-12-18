@@ -37,11 +37,13 @@ exports.new_post_handler = function(req, res){
   var time = month + '/' + day + '/' + year + " at " + hours + ':' + minutes + ':' + seconds;
   //get form values
   var title = req.body.title;
+  var title_sub = title.split(' ').join('-');
   var body = req.body.body;
 
   //Submitting to database
   var newPost = post({
     title: title,
+    title_sub: title_sub,
     content: body,
     date: time
   });

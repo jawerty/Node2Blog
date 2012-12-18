@@ -45,7 +45,7 @@ html
 							pre
 							for post in posts
 								label(style='font-size: 140%') - 
-								a(href='/post/#{post._id}', style='font-size: 130%;')= post.title
+								a(href='/post/#{post._id}/#{post.title_sub}', style='font-size: 130%;')= post.title
 								br
 								br
 			#footer

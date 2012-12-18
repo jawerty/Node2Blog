@@ -11,7 +11,7 @@ block wrapper_content
 				- var content = post.content.substring(0, 140) + '...';
 			.post
 				h1
-					a(href='post/#{post._id}')= post.title
+					a(href='post/#{post._id}/#{post.title_sub}')= post.title
 				br
 				p= content
 				br

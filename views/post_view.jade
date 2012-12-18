@@ -14,7 +14,7 @@ block wrapper_content
         br
         br
       p(style='font-size:150%;border-bottom:1px solid #ccc;padding:10px;margin-bottom:20px;margin-top:30px;') Comments
-      form(action='/post/#{posts._id}', style='margin:10px;', method='post')
+      form(action='/post/#{posts._id}/#{posts.title_sub}', style='margin:10px;', method='post')
         if(comment == null)
           label No comments
         else

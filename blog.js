@@ -51,7 +51,7 @@ app.configure('development', function(){
 app.get('/', home.index);
 app.get('/admin/delete', admin.delete);
 app.get('/admin/new', admin.new);
-app.get('/post/:id', post.post_view);
+app.get('/post/:id/:title', post.post_view);
 app.get('/admin' || '/admin/', admin.admin_check);
 app.get('/admin/logout', function(req,res){
   delete req.session.admin;
@@ -71,7 +71,7 @@ app.post('/admin/delete', admin.delete_post_handler);
 app.post('/admin/new', admin.new_post_handler);
 app.post('/admin' || '/admin/', admin.admin_check_post_handler);
 app.post('/', home.home_post_handler);
-app.post('/post/:id', post.post_view_post_handler);
+app.post('/post/:id/:title', post.post_view_post_handler);
 
 ///////////////////
 

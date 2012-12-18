@@ -6,7 +6,6 @@ var date 	 = new Date();
 
 exports.post_view = function(req, res){
 	id = req.params.id;
-
 	post.find({'_id': id}, function(err, post){
       if(post){
       	commentss.find({'postid': id}, function(err, comment){
@@ -24,6 +23,7 @@ exports.post_view = function(req, res){
 }
 exports.post_view_post_handler = function(req, res){
 	id = req.params.id;
+	title_sub = req.params.title;
 	name = req.body.name;
 	comment = req.body.comment;
 	console.log(name + ' said ' + comment);
@@ -47,6 +47,7 @@ exports.post_view_post_handler = function(req, res){
 	  //Submitting to database
 	  var newComment = commentss({
 	  	postid: id,
+	  	title_sub: title_sub,
 	    name: name,
 	    comment: comment,
 	    date: time
