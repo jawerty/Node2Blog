@@ -93,6 +93,6 @@ app.get('/new-page-name', function(req, res) {
 
 <img src='https://raw.github.com/jawerty/Node2Blog/master/public/images/screenshot4.png'><img>
 
-<h3>Congratulations you now have a working blog suitable to your basic blogger needs.</h3>
+<h3 style='color:lime'>Congratulations you now have a working blog suitable to your basic blogger needs.</h3>
 <br>
 <p><b>Contact the developer here</b><br>Email: jawerty210@gmail.com<br>Website: <a href='http://wrightdev.herokuapp.com'>http://wrightdev.herokuapp.com</a></p>
