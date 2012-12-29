@@ -103,7 +103,6 @@ $ heroku addons:add mongohq:sandbox
 </code>
 </pre>
 <p>This is the starter package for a server running on MongoDB with MongoHQ. This is essentially all you need to setup the basic functions to your new blog.</p>
-<br>
 <h1>Contact</h1>
 <p><b>Contact the developer here</b><br>Email: jawerty210@gmail.com<br>Website: <a href='http://wrightdev.herokuapp.com'>http://wrightdev.herokuapp.com</a></p>
 
