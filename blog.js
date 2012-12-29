@@ -1,4 +1,5 @@
  t = 'Node2Blog';
+ st = 'A simple blog made in Node.js'
  p = 'narwhal';
 /**
  * Module dependencies.
@@ -61,11 +62,12 @@ app.get('/admin/logout', function(req,res){
 });
 
 app.get('/about', function(req, res) {
-  res.render('about', { title: t, admin:req.session.admin});
+  res.render('about', { title: t, subTitle:st, admin:req.session.admin});
       
 });
 
-///////////////////
+///////////////////////////
+
 
 ///////post methods////////
 app.post('/admin/delete', admin.delete_post_handler);
@@ -74,7 +76,7 @@ app.post('/admin' || '/admin/', admin.admin_check_post_handler);
 app.post('/', home.home_post_handler);
 app.post('/post/:id/:title', post.post_view_post_handler);
 
-///////////////////
+///////////////////////////
 
 
 //Server start

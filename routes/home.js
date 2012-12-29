@@ -8,9 +8,9 @@ exports.index = function(req, res){
 
   	post.find({}).sort('-_id').execFind(function(err, posts){
   		if(posts){
-  			res.render('home', { title: t, posts:posts, admin:req.session.admin});
+  			res.render('home', { title: t, subTitle:st, posts:posts, admin:req.session.admin});
   		}else{
-  			res.render('home', { title: t, posts:null, admin:req.session.admin })
+  			res.render('home', { title: t, subTitle:st, posts:null, admin:req.session.admin })
   		}
   	});
 

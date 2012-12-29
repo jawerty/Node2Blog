@@ -11,9 +11,9 @@ exports.new = function(req, res){
   if(req.session.admin == 'true'){
     post.find({}).sort('-_id').execFind(function(err, posts){
       if(posts){
-        res.render('admin', { title: t, posts:posts, admin:req.session.admin});
+        res.render('admin', { title: t, subTitle:st, posts:posts, admin:req.session.admin});
       }else{
-        res.render('admin', { title: t, posts:null, admin:req.session.admin })
+        res.render('admin', { title: t, subTitle:st, posts:null, admin:req.session.admin })
       }
     });    
   }else{
@@ -58,15 +58,14 @@ exports.delete = function(req, res){
     if (req.session.admin == 'true'){
       post.find({}).sort('-_id').execFind(function(err, posts){
       if(posts){
-        res.render('admin_delete', { title: t, posts:posts, admin:req.session.admin});
+        res.render('admin_delete', { title: t, subTitle:st, posts:posts, admin:req.session.admin});
       }else{
-        res.render('admin_delete', { title: t, posts:null, admin:req.session.admin })
+        res.render('admin_delete', { title: t, subTitle:st, posts:null, admin:req.session.admin })
       }
       });
     }else{
       res.redirect('/')
     }
-
 };
 exports.delete_post_handler = function(req, res){
   var title = req.body.title;

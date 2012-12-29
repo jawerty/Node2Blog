@@ -26,7 +26,7 @@
 <img src='https://raw.github.com/jawerty/Node2Blog/master/public/images/screenshot1.png'></img>
 
 <p>If you would like to make a post, go to the the url http://localhost:3000/admin in order to log in and use the admin settings. <b>The password is <i>'narwhal'</i> by default</b>. To change the password, go to the file 'blog.js' and change the p variable at the top to your desired password.</p>
-<p><b>*Note: Change the t variable in 'blog.js' to your blog title (i.e t = 'Jared's Tech Blog').</b></p>
+<p><b>*Note: Change the t variable in 'blog.js' to your blog title (i.e t = 'Jared's Tech Blog'). <br>Also, Change the st variable in 'blog.js' to whatever you would like your subtitle to be (i.e st = 'I am an App developer').</b></p>
 
 <img src='https://raw.github.com/jawerty/Node2Blog/master/public/images/screenshot2.png'></img>
 
@@ -94,6 +94,15 @@ app.get('/new-page-name', function(req, res) {
 <img src='https://raw.github.com/jawerty/Node2Blog/master/public/images/screenshot4.png'><img>
 
 <h3 style='color:lime'>Congratulations you now have a working blog suitable to your basic blogger needs.</h3>
+
+<h1>Heroku Setup</h1>
+<p>Simply follow the directions on <a href=''>this</a> page to deploy the blog on heroku. However, in order to use MongoDB, you must enter the following command in the directory of your project</p>
+<pre>
+<code>
+$ heroku addons:add mongohq:sandbox
+</code>
+</pre>
+<p>This is the starter package for a server running on MongoDB with MongoHQ. This is essentially all you need to setup the basic functions to your new blog.</p>
 <br>
 <p><b>Contact the developer here</b><br>Email: jawerty210@gmail.com<br>Website: <a href='http://wrightdev.herokuapp.com'>http://wrightdev.herokuapp.com</a></p>
 

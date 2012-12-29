@@ -12,14 +12,14 @@ exports.post_view = function(req, res){
       if(post){
       	commentss.find({'postid': id}, function(err, comment){
       		if(comment){
-      			res.render('post_view', {title:t, post:post, comment:comment, admin:req.session.admin})
+      			res.render('post_view', {title:t, subTitle:st, post:post, comment:comment, admin:req.session.admin})
       		}else{
-      			res.render('post_view', {title:t, post:post, comment:null, admin:req.session.admin})
+      			res.render('post_view', {title:t, subTitle:st, post:post, comment:null, admin:req.session.admin})
       		}
       	});
         
       }else{
-        res.render('post_view', {title:t, post:null, comment:null, admin:req.session.admin})
+        res.render('post_view', {title:t, subTitle:st, post:null, comment:null, admin:req.session.admin})
       }
     });
 }

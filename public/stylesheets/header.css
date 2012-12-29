@@ -32,3 +32,9 @@
 	margin: 0 auto;
 	font-family: telegrafico;
 }
+#subTitle {
+	max-width: 1000px;
+	font-size: 130%;
+	margin: 0 auto;	
+	margin-bottom: 15px;
+}
