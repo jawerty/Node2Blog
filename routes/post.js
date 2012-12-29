@@ -1,9 +1,11 @@
+//PREREQUISITES
 var mongoose = require('mongoose');
 var db 		 = require('../db');
 var post = mongoose.model('post');
 var commentss = mongoose.model('comment');
 var date 	 = new Date();
 
+//Single post view
 exports.post_view = function(req, res){
 	id = req.params.id;
 	post.find({'_id': id}, function(err, post){

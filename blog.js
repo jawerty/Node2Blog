@@ -25,6 +25,7 @@ var express = require('express')
 var app = express();
 var store = new express.session.MemoryStore;
 
+//MIDDLEWARE
 app.configure(function(){
   app.use(express.logger('dev'));
   app.set('port', process.env.PORT || 3000);
@@ -47,7 +48,7 @@ app.configure('development', function(){
 
 
 
-////////get////////
+////////get methods////////
 app.get('/', home.index);
 app.get('/admin/delete', admin.delete);
 app.get('/admin/new', admin.new);
@@ -66,7 +67,7 @@ app.get('/about', function(req, res) {
 
 ///////////////////
 
-///////post////////
+///////post methods////////
 app.post('/admin/delete', admin.delete_post_handler);
 app.post('/admin/new', admin.new_post_handler);
 app.post('/admin' || '/admin/', admin.admin_check_post_handler);
@@ -76,7 +77,7 @@ app.post('/post/:id/:title', post.post_view_post_handler);
 ///////////////////
 
 
-
+//Server start
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Your blog is running on port " + app.get('port'));
 });

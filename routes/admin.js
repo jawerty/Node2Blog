@@ -52,6 +52,8 @@ exports.new_post_handler = function(req, res){
   //redirecting to homepage
   res.redirect('/');
 };
+
+//deleting posts functions
 exports.delete = function(req, res){
     if (req.session.admin == 'true'){
       post.find({}).sort('-_id').execFind(function(err, posts){
@@ -80,6 +82,8 @@ exports.delete_post_handler = function(req, res){
       }
     });
 };
+
+//admin check functions
 exports.admin_check_post_handler = function(req, res){
   var password1 = req.body.password;
   var password2 = req.body.passwordconfirm;
