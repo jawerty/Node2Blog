@@ -45,12 +45,13 @@
 	color:505050;
 }
 #formNew input[type='text'] {
-	border: 1px solid #A0A0A0;
+	border: 1px solid #ddd;
 	border-radius: 5px;
 	width: 300px;
-	height: 60px;
-	font-size: 25px;
+	height: 40px;
+	font-size: 20px;
 	padding-left: 10px;
+    color:#505050;
 
 }
 #formNew input[type='submit'] {
@@ -67,17 +68,20 @@
 	background-color: #f6f6f6;
 
 }
-#formNew textarea {
-	border: 1px solid #A0A0A0;
+#formNewTextarea {
 	border-radius: 5px;
-	width: 93%;
+	border: 1px solid #ddd;
+	width: 96%;
 	height: 250px;
 	font-size: 25px;
 	padding: 10px;
 	resize:none;
 	outline:0px !important;
     -webkit-appearance:none;
+    background: #fff;
+    color:#505050;
 }
+
 .post{
 	border: 1px solid #ccc;
 	background: #f7f7f7;

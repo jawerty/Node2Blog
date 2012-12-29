@@ -1,7 +1,7 @@
 extends layout
 
-	
 block wrapper_content
+
 	.container
 		
 		#formNew
@@ -10,7 +10,7 @@ block wrapper_content
 				input(type='text', name='title', placeholder='Title')
 				br
 				br
-				textarea(placeholder= 'Post information', name='body')
+				textarea(id='formNewTextarea', name='body', placeholder='Write your post here')
 				br
 				br
 				input(type="submit", value="Create")

@@ -1,10 +1,12 @@
 extends layout
 
-	
+
 block wrapper_content
+
 	.container
 
 		for post in posts 
+
 			if post.content.length < 140
 				- var content = post.content;
 			else
@@ -14,6 +16,7 @@ block wrapper_content
 					a(href='post/#{post._id}/#{post.title_sub}')= post.title
 				br
 				p= content
+				
 				br
 				br
 				label Created at: #{post.date}

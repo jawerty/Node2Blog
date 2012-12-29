@@ -7,6 +7,7 @@ html
 		link(rel='stylesheet', href='/stylesheets/wrapper.css')
 		link(rel='stylesheet', href='/stylesheets/footer.css')
 		link(rel='stylesheet', href='/stylesheets/nav.css')
+		script(type='text/javascript', src='http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js')
 
 	body
 		
@@ -45,10 +46,17 @@ html
 							br
 							pre
 							for post in posts
-								label(style='font-size: 140%') - 
-								a(href='/post/#{post._id}/#{post.title_sub}', style='font-size: 130%;')= post.title
-								br
-								br
+								table
+									tr
+										td
+											#left(style='float:left;width:10%')
+												label(style='font-size: 140%') -&nbsp
+										td
+											#right(style='float:left;width: 90%')
+												a(href='/post/#{post._id}/#{post.title_sub}', style='font-size: 130%;')=  post.title
+									tr(style='height:10px;')
+								
+
 			#footer
 				#footer_text
 					p
