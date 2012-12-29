@@ -97,13 +97,13 @@ app.get('/new-page-name', function(req, res) {
 
 <h1>Heroku Setup</h1>
 <h4><b>*Note: You must have a heroku account along with the <a href='https://toolbelt.heroku.com/'>Heroku Toolbelt</a> to follow this part of the tutorial</b></h4>
-<p>Simply follow the directions on <a href='https://devcenter.heroku.com/articles/nodejs'>this</a> page to deploy the blog on heroku. However, in order to use MongoDB, you must enter the following command in the directory of your project</p>
+<p>Simply follow the directions on <a href='https://devcenter.heroku.com/articles/nodejs'>this</a> page to deploy the blog with heroku. However, in order to use MongoDB, you must enter the following command in the directory of your project</p>
 <pre>
 <code>
 $ heroku addons:add mongohq:sandbox
 </code>
 </pre>
-<p>This is the starter package for a server running on MongoDB with MongoHQ. This is essentially all you need to setup the basic functions to your new blog.</p>
+<p>This addon is a <b>free</b> starter package for running a server with a MongoDB backend by MongoHQ. This is essentially all you need to setup the basic functions to your new blog.</p>
 <h1>Contact</h1>
 <p><b>Contact the developer here</b><br>Email: jawerty210@gmail.com<br>Website: <a href='http://wrightdev.herokuapp.com'>http://wrightdev.herokuapp.com</a></p>
 
