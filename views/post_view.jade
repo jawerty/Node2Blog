@@ -10,10 +10,11 @@ block wrapper_content
         br
         br
         #tweetbtn(style='float:left')
-          <a href="https://twitter.com/share" class="twitter-share-button" data-size="large">Tweet</a>
-          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+          a(href="https://twitter.com/share", class="twitter-share-button", data-size="large") Tweet
+          script
+            !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
        
-        <div class="fb-like" data-send="true" style='float:right;margin-top:3px;' data-width="450" data-show-faces="true"></div>
+        .fb-like(data-send="true", style='float:right;margin-top:3px;', data-width="450", data-show-faces="true")
         br
         br
         iframe(id='#{posts._id}',frameborder="0",onLoad="autoResize('#{posts._id}');", width="100%", height="200px")
