@@ -3,14 +3,30 @@ extends layout
 block wrapper_content
   .container
     for posts in post
-      .post
+      .post(style='height:100%')
 
         h1= posts.title
-        br
-        p= posts.content
-        br
-        br
         label= posts.date
+        br
+        br
+        iframe(id='#{posts._id}',frameborder="0", style='width:100%;')
+        label(value='#{posts.content}', name='#{posts._id}')
+        script(type='text/javascript')
+
+          c = stripScripts($('[name="#{posts._id}"]').attr('value'))
+          var iframe = document.getElementById('#{posts._id}')
+          var doc = iframe.document;
+          if(iframe.contentDocument)
+            doc = iframe.contentDocument; 
+          else if(iframe.contentWindow)
+            doc = iframe.contentWindow.document;
+          doc.open()
+          
+          doc.writeln(c)
+          doc.close()
+        br
+        br
+        
         br
         br
       p(style='font-size:150%;border-bottom:1px solid #ccc;padding:10px;margin-bottom:20px;margin-top:30px;') Comments

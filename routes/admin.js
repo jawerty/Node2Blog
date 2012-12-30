@@ -38,6 +38,8 @@ exports.new_post_handler = function(req, res){
   //get form values
   var title = req.body.title;
   var title_sub = title.split(' ').join('-');
+  
+
   var body = req.body.body;
   
   //Submitting to database

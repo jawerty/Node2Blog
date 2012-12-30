@@ -5,7 +5,7 @@ block wrapper_content
 
 	.container
 
-		for post in posts 
+		for post in posts
 
 			if post.content.length < 140
 				- var content = post.content;
@@ -15,7 +15,20 @@ block wrapper_content
 				h1
 					a(href='post/#{post._id}/#{post.title_sub}')= post.title
 				br
-				p= content
+				iframe(id='#{post._id}', scrolling="auto", frameborder="0", style='width:100%;')
+				label(value='#{content}', name='#{post._id}')
+				script(type='text/javascript')
+					c = stripScripts($('[name="#{post._id}"]').attr('value'))
+					var iframe = document.getElementById('#{post._id}')
+					var doc = iframe.document;
+					if(iframe.contentDocument)
+						doc = iframe.contentDocument; 
+					else if(iframe.contentWindow)
+						doc = iframe.contentWindow.document;
+					doc.open()
+					
+					doc.writeln(c)
+					doc.close()
 				
 				br
 				br
