@@ -6,24 +6,25 @@
 	/*background:url('../images/micro_carbon.png');*/
 	
 	 /* IE10 Consumer Preview */ 
-	background-image: -ms-linear-gradient(bottom, #222222 0%, #111111 100%);
+	background-image: -ms-linear-gradient(bottom, #111 0%, #444 100%);
 
 	/* Mozilla Firefox */ 
-	background-image: -moz-linear-gradient(bottom, #222222 0%, #111111 100%);
+	background-image: -moz-linear-gradient(bottom, #111 0%, #444 100%);
 
 	/* Opera */ 
-	background-image: -o-linear-gradient(bottom, #222222 0%, #111111 100%);
+	background-image: -o-linear-gradient(bottom, #111 0%, #444 100%);
 
 	/* Webkit (Safari/Chrome 10) */ 
-	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #222222), color-stop(1, #111111));
+	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #111), color-stop(1, #444));
 
 	/* Webkit (Chrome 11+) */ 
-	background-image: -webkit-linear-gradient(bottom, #222222 0%, #111111 100%);
+	background-image: -webkit-linear-gradient(bottom, #111 0%, #444 100%);
 
 	/* W3C Markup, IE10 Release Preview */ 
-	background-image: linear-gradient(to top, #222222 0%, #111111 100%);
+	background-image: linear-gradient(to top, #111 0%, #444 100%);
 	height: 100%;
 	margin: 0;
+	border-bottom: 1px solid #555;
 }
 #title {
 	max-width: 1000px;

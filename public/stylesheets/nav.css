@@ -4,10 +4,10 @@
 	height: 45px;
 	margin: 0px 0px 20px 0px;
 /* IE10 Consumer Preview */ 
-background-image: -ms-linear-gradient(bottom, #777 0%, #858585 100%);
+background-image: -ms-linear-gradient(bottom, #444 0%, #858585 100%);
 
 /* Mozilla Firefox */ 
-background-image: -moz-linear-gradient(bottom, #777 0%, #858585 100%);
+background-image: -moz-linear-gradient(bottom, #444 0%, #858585 100%);
 
 /* Opera */ 
 background-image: -o-linear-gradient(bottom, #777 0%, #858585 100%);
@@ -16,7 +16,7 @@ background-image: -o-linear-gradient(bottom, #777 0%, #858585 100%);
 background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #777), color-stop(1, #858585));
 
 /* Webkit (Chrome 11+) */ 
-background-image: -webkit-linear-gradient(bottom, #777 0%, #858585 100%);
+background-image: -webkit-linear-gradient(bottom, #444 0%, #858585 100%);
 
 /* W3C Markup, IE10 Release Preview */ 
 background-image: linear-gradient(to top, #777 0%, #858585 100%);
