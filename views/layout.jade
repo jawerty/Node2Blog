@@ -43,15 +43,15 @@ html
 						a(href='/') Back to home
 				else
 					#posts_list
-						p(style='font-size: 150%; font-weight:bold; border-bottom: 1px solid #c1c1c1;padding-bottom: 5px;margin-bottom: 10px;') Latest Posts
+						p(style='font-size: 150%; font-weight:bold; border-bottom: 1px solid #b1b1b1;padding-bottom: 5px;margin-bottom: 10px;') Latest Posts
 							br
 							pre
 							for post in posts
-								table
+								table(style='padding-top:5px;border-bottom:1px solid #ccc')
 									tr
 										td
 											#left(style='float:left;width:10%')
-												label(style='font-size: 140%;font-style: none;') >&nbsp
+												label(style='font-size: 120%;font-style: oblique;') -&nbsp&nbsp
 										td
 											#right(style='float:left;width: 90%')
 												a(href='/post/#{post._id}/#{post.title_sub}', style='font-size: 130%;')=  post.title
