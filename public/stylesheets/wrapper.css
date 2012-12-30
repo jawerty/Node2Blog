@@ -53,7 +53,19 @@ iframe::-webkit-scrollbar-thumb {
 	padding: 25px;
 	margin-bottom: 50px;
 	margin-left: 18px;
+	   white-space: pre-wrap;      /* CSS3 */   
+   white-space: -moz-pre-wrap; /* Firefox */    
+   white-space: -pre-wrap;     /* Opera <7 */   
+   white-space: -o-pre-wrap;   /* Opera 7 */    
+   word-wrap: break-word;      /* IE */
 	
+}
+.container {
+	   white-space: pre-wrap;      /* CSS3 */   
+   white-space: -moz-pre-wrap; /* Firefox */    
+   white-space: -pre-wrap;     /* Opera <7 */   
+   white-space: -o-pre-wrap;   /* Opera 7 */    
+   word-wrap: break-word;      /* IE */
 }
 .container h1 {
 	font-size: 70px;
@@ -106,13 +118,27 @@ iframe::-webkit-scrollbar-thumb {
     background: #fff;
     color:#505050;
 }
+#post_table{
 
+}
 .post{
 	border: 1px solid #ccc;
 	background: #f7f7f7;
 	padding: 25px;
 	margin-bottom: 30px;
-
+	   white-space: pre-wrap;      /* CSS3 */   
+   white-space: -moz-pre-wrap; /* Firefox */    
+   white-space: -pre-wrap;     /* Opera <7 */   
+   white-space: -o-pre-wrap;   /* Opera 7 */    
+   word-wrap: break-word;      /* IE */
+}
+#left{
+	float:left;
+	width:20px;
+}
+#right{
+	float:left;
+	width: 150px;
 }
 #comment_form{
 	border: 1px solid #ccc;
