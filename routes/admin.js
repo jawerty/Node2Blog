@@ -43,7 +43,7 @@ exports.new_post_handler = function(req, res){
   return strTime;
   }
   //organize time so it looks nice
-  var time = month + '/' + day + '/' + year + " at " + formatAMPM(date)
+  var time = month + '/' + day + '/' + year + " at " + formatAMPM(date);
   var title = req.body.title;
   var title_sub = title.split(' ').join('-');
   

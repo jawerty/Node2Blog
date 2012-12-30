@@ -125,7 +125,7 @@ iframe::-webkit-scrollbar-thumb {
 	border: 1px solid #ccc;
 	background: #f7f7f7;
 	padding: 25px;
-	margin-bottom: 30px;
+	margin-bottom: 10px;
 	   white-space: pre-wrap;      /* CSS3 */   
    white-space: -moz-pre-wrap; /* Firefox */    
    white-space: -pre-wrap;     /* Opera <7 */   
