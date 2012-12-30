@@ -10,16 +10,16 @@ background-image: -ms-linear-gradient(bottom, #444 0%, #858585 100%);
 background-image: -moz-linear-gradient(bottom, #444 0%, #858585 100%);
 
 /* Opera */ 
-background-image: -o-linear-gradient(bottom, #777 0%, #858585 100%);
+background-image: -o-linear-gradient(bottom, #444 0%, #858585 100%);
 
 /* Webkit (Safari/Chrome 10) */ 
-background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #777), color-stop(1, #858585));
+background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #444), color-stop(1, #858585));
 
 /* Webkit (Chrome 11+) */ 
 background-image: -webkit-linear-gradient(bottom, #444 0%, #858585 100%);
 
 /* W3C Markup, IE10 Release Preview */ 
-background-image: linear-gradient(to top, #777 0%, #858585 100%);
+background-image: linear-gradient(to top, #444 0%, #858585 100%);
 }
 #nav ol{
 	
@@ -43,6 +43,6 @@ background-image: linear-gradient(to top, #777 0%, #858585 100%);
 	font-family: verdana;
 }
 #nav a:hover{
-	color: #aaa;
+	color: #333;
 
 }
