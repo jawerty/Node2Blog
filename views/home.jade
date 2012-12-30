@@ -7,10 +7,10 @@ block wrapper_content
 
 		for post in posts
 
-			if post.content.length < 140
+			if post.content.length < 200
 				- var content = post.content;
 			else
-				- var content = post.content.substring(0, 140) + '...';
+				- var content = post.content.substring(0, 200) + '...';
 			.post
 				h1
 					a(href='post/#{post._id}/#{post.title_sub}')= post.title
