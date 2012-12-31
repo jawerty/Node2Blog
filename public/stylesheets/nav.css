@@ -33,7 +33,7 @@ background-image: linear-gradient(to top, #444 0%, #858585 100%);
 	text-align: center;
 }
 #nav a{
-	display:inline-block;
+	float:left;
 	text-decoration: none;
 	color: #fff;
 	margin-right: 2%;
@@ -44,5 +44,4 @@ background-image: linear-gradient(to top, #444 0%, #858585 100%);
 }
 #nav a:hover{
 	color: #333;
-
 }
