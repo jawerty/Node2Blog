@@ -26,8 +26,8 @@ exports.post_view = function(req, res){
 exports.post_view_post_handler = function(req, res){
 	id = req.params.id;
 	title_sub = req.params.title;
-	name = req.body.name;
-	comment = req.body.comment;
+	name = req.body.name || 'anon';
+	comment = req.body.comment || 'Nothing';
 	console.log(name + ' said ' + comment);
 	console.log(id);
 
@@ -57,5 +57,5 @@ exports.post_view_post_handler = function(req, res){
 	  newComment.save();
 
 	  //redirecting to homepage
-	  res.redirect('/post/' + id);
+	  res.redirect('/post/' + id + '/' + title_sub);
 }
