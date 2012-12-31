@@ -34,6 +34,8 @@ background-image: linear-gradient(to top, #444 0%, #858585 100%);
 }
 #nav a{
 	float:left;
+	display:block;
+	opacity:.9999;
 	text-decoration: none;
 	color: #fff;
 	margin-right: 2%;
