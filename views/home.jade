@@ -15,7 +15,7 @@ block wrapper_content
 				h1
 					a(href='post/#{post._id}/#{post.title_sub}')= post.title
 				br
-				iframe(id='#{post._id}', scrolling="auto", frameborder="0", style='width:100%;height:60px;')
+				iframe(id='#{post._id}', scrolling="auto", frameborder="0", style='width:100%;height:70px;')
 				label(value='#{content}', name='#{post._id}')
 				script(type='text/javascript')
 					c = stripScripts($('[name="#{post._id}"]').attr('value'))
