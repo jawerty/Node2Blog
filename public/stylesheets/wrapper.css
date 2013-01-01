@@ -10,7 +10,7 @@
 	background-color: #f0f0f0;
 	border: 1px solid #ddd;
 	border-radius: 5px;
-	width: 69%;
+	width: 71.3%;
 	height: 100%;
 	padding: 25px;
 	margin-bottom: 50px;
@@ -43,24 +43,26 @@ iframe::-webkit-scrollbar-thumb {
     background-color: #555;
 
 }
-#posts_list {
-	float:left;
+
+.widget{
+	float:right;
 	background-color: #f0f0f0;
 	border: 1px solid #ddd;
 	border-radius: 5px;
 	width: 16%;
+	
 	height: 100%;
 	padding: 25px;
-	margin-bottom: 50px;
+	margin-bottom: 20px;
 	margin-left: 18px;
-	   white-space: pre-wrap;      /* CSS3 */   
-   white-space: -moz-pre-wrap; /* Firefox */    
-   white-space: -pre-wrap;     /* Opera <7 */   
-   white-space: -o-pre-wrap;   /* Opera 7 */    
-   word-wrap: break-word;      /* IE */
-	
+	white-space: pre-wrap;      /* CSS3 */   
+    white-space: -moz-pre-wrap; /* Firefox */    
+    white-space: -pre-wrap;     /* Opera <7 */   
+    white-space: -o-pre-wrap;   /* Opera 7 */    
+    word-wrap: break-word;      /* IE */
 }
 .container {
+
 	   white-space: pre-wrap;      /* CSS3 */   
    white-space: -moz-pre-wrap; /* Firefox */    
    white-space: -pre-wrap;     /* Opera <7 */   

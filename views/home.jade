@@ -4,7 +4,6 @@ extends layout
 block wrapper_content
 
 	.container
-
 		for post in posts
 
 			if post.content.length < 200
@@ -26,13 +25,13 @@ block wrapper_content
 					else if(iframe.contentWindow)
 						doc = iframe.contentWindow.document;
 					doc.open()
-					
+						
 					doc.writeln(c)
 					doc.close()
-				
+					
 				br
 				br
 				label Created at: #{post.date}
 				br
 
-				
+					

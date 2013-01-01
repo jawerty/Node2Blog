@@ -48,10 +48,10 @@ html
 				#wrapper
 					block wrapper_content
 				if(typeof posts == 'undefined')
-					#posts_list
+					.widget
 						a(href='/') Back to home
 				else
-					#posts_list
+					.widget
 						p(style='font-size: 150%; font-weight:bold; border-bottom: 1px solid #b1b1b1;padding-bottom: 5px;margin-bottom: 4px;') Latest Posts
 							br
 							pre
@@ -65,9 +65,8 @@ html
 											#right
 												a(href='/post/#{post._id}/#{post.title_sub}', style='font-size: 130%;')=  post.title
 									tr(style='height:10px;')
-								
-
-			#footer
-				#footer_text
-					p
-						| Using the Node2Blog template and running on a Node.js server
+							
+				#footer
+					#footer_text
+						p
+							| Using the Node2Blog template and running on a Node.js server

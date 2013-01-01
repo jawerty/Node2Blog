@@ -1,6 +1,6 @@
 
 <h1>Node2Blog</h1>
-<p>Node2Blog is a simple and easy to use blog template for the casual blogger. For those who wish to setup an operable blog in minutes, this is the project for you. The blog is built with Node.js, Express.js, and Mongodb (with the mongoose driver). The instructions for building a blog with the Node2Blog template is shown below.</p> 
+<p>Node2Blog is a simple and easy to use blog template for the casual blogger. For those who wish to setup an operable blog in minutes, this is the project for you. The blog is built with Node.js, Express.js, and Mongodb (with the mongoose driver). The instructions for quickly building a blog with the Node2Blog template is shown below.</p> 
 
 <h1>Prerequisites</h1>
 <ol>
@@ -93,6 +93,43 @@ app.get('/new-page-name', function(req, res) {
 
 <img src='https://raw.github.com/jawerty/Node2Blog/master/public/images/screenshot4.png'><img>
 
+<h1>Adding a side widget</h1>
+<p>In order to add a side widget, or simply a box under the "Latest Posts" box, you must go to the file 'layout.jade' and insert this line </p>
+<pre>
+<code>
+.widget
+</code>
+</pre>
+<p>Exactly where it is inserted below</p>
+<pre>
+<code>
+#box
+	#content
+		#wrapper
+			block wrapper_content
+		if(typeof posts == 'undefined')
+			.widget
+				a(href='/') Back to home
+		else
+			.widget
+				p(style='font-size: 150%; font-weight:bold; border-bottom: 1px solid #b1b1b1;padding-bottom: 5px;margin-bottom: 4px;') Latest Posts
+					br
+					pre
+					for post in posts
+						table(id='post_table', style='padding-top:10px;border-bottom:1px solid #ddd')
+							tr
+								td
+									#left
+										label(style='font-size: 130%;') -&nbsp&nbsp
+								td
+									#right
+										a(href='/post/#{post._id}/#{post.title_sub}', style='font-size: 130%;')=  post.title
+							tr(style='height:10px;')
+		<b>.widget</b>
+</code>
+</pre>
+<p>Now you can input any sort of information you'd like in your new widget box.<b>*Note: Without any posts on your blog, the widget boxes will not be positioned adequately.</b></p>
+<br>
 <h3 style='color:lime'>Congratulations you now have a working blog suitable to your basic blogger needs.</h3>
 
 <h1>Heroku Setup</h1>
