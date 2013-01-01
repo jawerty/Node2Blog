@@ -125,7 +125,7 @@ app.get('/new-page-name', function(req, res) {
 									#right
 										a(href='/post/#{post._id}/#{post.title_sub}', style='font-size: 130%;')=  post.title
 							tr(style='height:10px;')
-		<b>.widget</b>
+		<p><i><b>.widget</b></i></p>
 </code>
 </pre>
 <p>Now you can input any sort of information you'd like in your new widget box.<b>*Note: Without any posts on your blog, the widget boxes will not be positioned adequately.</b></p>
