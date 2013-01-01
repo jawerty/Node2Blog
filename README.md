@@ -125,15 +125,17 @@ app.get('/new-page-name', function(req, res) {
 									#right
 										a(href='/post/#{post._id}/#{post.title_sub}', style='font-size: 130%;')=  post.title
 							tr(style='height:10px;')
-							
+
 		<b>.widget</b> //the inserted code
 </code>
 </pre>
 <p>Now you can input any sort of information you'd like in your new widget box.<b>*Note: Without any posts on your blog, the widget boxes will not be positioned adequately.</b></p>
 <br>
-<h3 style='color:lime'>Congratulations you now have a working blog suitable to your basic blogger needs.</h3>
-
-<h1>Heroku Setup</h1>
+<br>
+<h3>Congratulations you now have a working blog suitable to your basic blogger needs.</h3>
+<br>
+<br>
+<h1>Optional: Heroku Setup</h1>
 <h4><b>*Note: You must have a heroku account along with the <a href='https://toolbelt.heroku.com/'>Heroku Toolbelt</a> to follow this part of the tutorial</b></h4>
 <p>Simply follow the directions on <a href='https://devcenter.heroku.com/articles/nodejs'>this</a> page to deploy the blog with heroku. However, in order to use MongoDB, you must enter the following command in the directory of your project</p>
 <pre>
