@@ -16,7 +16,9 @@
 		<b>Mongoose</b> (will be installed with npm)
 	</li>
 </ol>
+
 <h1>Tutorial: Getting Started</h1>
+<p><b>*Note: Forking Node2Blog is the best way to get the repository.</b></p>
 <p>In your terminal, 'cd' to the directory where you want to develop the blog and do the following commands</p>
 <pre>$ git clone git@github.com:jawerty/Node2Blog.git blog-folder-name<br>$ cd blog-folder-name<br>$ npm install .</pre>
 <p>In order to initiate the blog server on your local machine, do the following command (You need node.js to run the following command)</p>
