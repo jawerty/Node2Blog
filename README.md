@@ -35,7 +35,7 @@
 <p>When successfully logged in, your navigation bar should have three new options appended to it...</p>
 <ol>
 	<li>Admin-New (create a new post)</li>
-	<li>Admin-Delete (delete a post</li>
+	<li>Admin-Delete (delete a post)</li>
 	<li>Admin-Logout (log out of admin view)</li>
 </ol>
 
