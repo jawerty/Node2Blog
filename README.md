@@ -33,7 +33,7 @@
 	</li>
 </ul>
 <h1>Prerequisites</h1>
-<ol>
+<ul>
 	<li>
 		<b>Node.js</b> (version 0.8 or above, download <a href='http://nodejs.org/'>here</a>)
 	</li>
@@ -45,7 +45,7 @@
 	<li>
 		<b>Mongoose</b> (will be installed with npm)
 	</li>
-</ol>
+</ul>
 
 <h1>Tutorial: Getting Started</h1>
 <p><b>*Note: Forking Node2Blog is the best way to get the repository.</b></p>
