@@ -2,6 +2,36 @@
 <h1>Node2Blog</h1>
 <p>Node2Blog is a simple and easy to use blog template for the casual blogger. For those who wish to setup an operable blog in minutes, this is the project for you. The blog is built with Node.js, Express.js, and Mongodb (with the mongoose driver). The instructions for quickly building a blog with the Node2Blog template is shown below.</p> 
 
+<h1>Features</h1>
+<ol>
+	<li>
+		Intergration of the lightweight rich text editor, NicEdit.
+	</li>
+	<li>
+		Utilizes the Express framework.
+	</li>
+	<li>
+		Uses MongoDB on the backend.
+	</li>
+	<li>
+		An Admin interface, initiated by a password confirmation.
+	</li> 
+	<li>
+		Simplistic design: Allowing for the user to easily build on top of the layout.
+	</li>
+	<li>
+		Each post has a Facebook 'like' button and a Twitter 'tweet' button.
+	</li>
+	<li>
+		Commenting system within each post.
+	</li>
+	<li>
+		Easy Heroku integration.
+	</li>
+	<li>
+		And much more...
+	</li>
+</ol>
 <h1>Prerequisites</h1>
 <ol>
 	<li>
