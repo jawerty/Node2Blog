@@ -7,10 +7,12 @@ var date 	 = new Date();
 
 //Single post view
 exports.post_view = function(req, res){
+
 	id = req.params.id;
 	post.find({'_id': id}, function(err, post){
       if(post){
       	commentss.find({'postid': id}, function(err, comment){
+      		t = post['title']
       		if(comment){
       			res.render('post_view', {title:t, subTitle:st, post:post, comment:comment, admin:req.session.admin})
       		}else{
