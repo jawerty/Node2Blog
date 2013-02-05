@@ -1,4 +1,3 @@
-
 <h1>Node2Blog</h1>
 <p>Node2Blog is a simple and easy to use blog template for the casual blogger. For those who wish to setup an operable blog in minutes, this is the project for you. The blog is built with Node.js, Express.js, and Mongodb (with the mongoose driver). The instructions for quickly building a blog with the Node2Blog template is shown below.</p> 
 
@@ -117,7 +116,6 @@ app.get('/about', function(req, res) {
 app.get('/new-page-name', function(req, res) {
   res.render('new_page_name', { title: t, admin:req.session.admin});
 });
-
 ///////////////////
 </code></pre>
 
@@ -157,7 +155,6 @@ app.get('/new-page-name', function(req, res) {
 									#right
 										a(href='/post/#{post._id}/#{post.title_sub}', style='font-size: 130%;')=  post.title
 							tr(style='height:10px;')
-
 		<b>.widget</b> //the inserted code
 </code>
 </pre>
