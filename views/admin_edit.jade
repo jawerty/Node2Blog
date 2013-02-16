@@ -1,0 +1,21 @@
+extends layout
+
+block wrapper_content
+	script(src="../javascripts/nicEdit.js", type="text/javascript")
+	script(type='text/javascript')
+		bkLib.onDomLoaded(nicEditors.allTextAreas);
+		
+	.container
+		
+		#formNew
+			h1 Edit Post
+			form(method='post')
+				input(type='text', name='title', value='#{post.title}',placeholder='Title (do not change)') 
+				label do not change title!!
+				br
+				br
+				textarea(id='formNewTextarea', name='body', placeholder='Write your post here') #{post.content}
+				br
+				br
+				input(type="submit", value="Create")
+

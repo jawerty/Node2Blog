@@ -91,7 +91,30 @@ exports.delete_post_handler = function(req, res){
       }
     });
 };
+exports.admin_edit = function(req, res){
+  if (req.session.admin == 'true'){
+    post.findOne({_id: req.params.id}, function(err, post){
+      if(post){
+        res.render('admin_edit', {title: t, subTitle:st, post:post, admin:req.session.admin})
+      }else{
+        res.redirect('/admin')
+      }
+    })
+  }else{
+    res.redirect('/')
+  }
+};
+exports.admin_edit_post_handler = function(req, res){
+  body = req.body.body;
+  title = req.body.title;
 
+  post.findOne({title: title}, function(err, post){
+    post.content = body;
+    post.save()
+    console.log('edited post complete')
+    res.redirect('/')
+  })
+}
 //admin check functions
 exports.admin_check_post_handler = function(req, res){
   var password1 = req.body.password;

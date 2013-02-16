@@ -33,3 +33,6 @@ block wrapper_content
 				br
 				label Created at: #{post.date}
 				br
+				br
+				if(typeof admin != 'undefined')
+					a(href='/admin/#{post._id}/edit') Edit Post

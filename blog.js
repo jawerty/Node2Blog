@@ -55,6 +55,7 @@ app.get('/admin/delete', admin.delete);
 app.get('/admin/new', admin.new);
 app.get('/post/:id/:title', post.post_view);
 app.get('/admin' || '/admin/', admin.admin_check);
+app.get('/admin/:id/edit', admin.admin_edit);
 app.get('/admin/logout', function(req,res){
   delete req.session.admin;
   console.log('logged-out')
@@ -73,6 +74,7 @@ app.get('/about', function(req, res) {
 app.post('/admin/delete', admin.delete_post_handler);
 app.post('/admin/new', admin.new_post_handler);
 app.post('/admin' || '/admin/', admin.admin_check_post_handler);
+app.post('/admin/:id/edit', admin.admin_edit_post_handler);
 app.post('/', home.home_post_handler);
 app.post('/post/:id/:title', post.post_view_post_handler);
 
