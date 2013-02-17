@@ -1,4 +1,4 @@
-<h1>Node2Blog</h1>
+<h1>Node2Blog (fork from jawerty210 project)</h1>
 <p>Node2Blog is a simple and easy to use blog template for the casual blogger. For those who wish to setup an operable blog in minutes, this is the project for you. The blog is built with Node.js, Express.js, and Mongodb (with the mongoose driver). The instructions for quickly building a blog with the Node2Blog template is shown below.</p> 
 
 <h1>Features</h1>
@@ -177,7 +177,7 @@ $ heroku addons:add mongohq:sandbox
 </pre>
 <p>This addon is a <b>free</b> starter package for running a server with a MongoDB backend by MongoHQ. This is essentially all you need to setup the basic functions to your new blog.</p>
 <h1>Contact</h1>
-<p><b>Contact the developer here</b><br>Email: jawerty210@gmail.com<br>Website: <a href='http://wrightdev.herokuapp.com'>http://wrightdev.herokuapp.com</a></p>
+<p><b>Contact the developer here</b><br>Email: kenshiro@kenshiro.me<br>Website: <a href='http://kenshiro.me'>http://kenshiro.me</a></p>
 
 <h1>MIT LICENSE</h1>
 The MIT License (MIT) Copyright (c) 2012 Jared Wright
