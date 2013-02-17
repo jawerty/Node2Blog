@@ -1,19 +1,19 @@
- t = 'Node2Blog';
- st = 'A simple blog made in Node.js'
- p = 'narwhal';
+var blogConfig = require("./config/blogConfig");
+console.log("Blog config loaded [name=%s, subtitle=%s]", blogConfig.name, blogConfig.st);
+
+t = blogConfig.name;
+st = blogConfig.st;
+p = blogConfig.password;
+
 /**
  * Module dependencies.
  */
 var mongoose = require('mongoose');
-var db     = require('./db');
+var db = require('./db');
 var post = mongoose.model('post');
 
-
- //change t to whatever you want your blog to be called
- //change p to whatever you want your password to be
-
- admin = null;
- var error;
+admin = null;
+var error;
 
 
 var express = require('express')
@@ -27,7 +27,7 @@ var app = express();
 var store = new express.session.MemoryStore;
 
 //MIDDLEWARE
-app.configure(function(){
+app.configure(function () {
   app.use(express.logger('dev'));
   app.set('port', process.env.PORT || 3000);
   app.set('views', __dirname + '/views');
@@ -37,16 +37,15 @@ app.configure(function(){
   app.use(express.methodOverride());
   app.use(express.cookieParser());
   app.use(express.session({ secret: 'ar4452ihbb34y2b3hu4kvk2u34vu23y4yu324k',
-                            store: store
-                             }));
+    store: store
+  }));
   app.use(express.static(path.join(__dirname, 'public')));
   app.use(app.router);
 });
 
-app.configure('development', function(){
+app.configure('development', function () {
   app.use(express.errorHandler());
 });
-
 
 
 ////////get methods////////
@@ -56,15 +55,15 @@ app.get('/admin/new', admin.new);
 app.get('/post/:id/:title', post.post_view);
 app.get('/admin' || '/admin/', admin.admin_check);
 app.get('/admin/:id/edit', admin.admin_edit);
-app.get('/admin/logout', function(req,res){
+app.get('/admin/logout', function (req, res) {
   delete req.session.admin;
   console.log('logged-out')
   res.redirect('/');
 });
 
-app.get('/about', function(req, res) {
-  res.render('about', { title: t, subTitle:st, admin:req.session.admin});
-      
+app.get('/about', function (req, res) {
+  res.render('about', { title: t, subTitle: st, admin: req.session.admin});
+
 });
 
 ///////////////////////////
@@ -82,6 +81,6 @@ app.post('/post/:id/:title', post.post_view_post_handler);
 
 
 //Server start
-http.createServer(app).listen(app.get('port'), function(){
+http.createServer(app).listen(app.get('port'), function () {
   console.log("Your blog is running on port " + app.get('port'));
 });

@@ -1,12 +1,37 @@
-#footer {
-	width: 97.5%;
-  	text-align: center;
-  	float: left;
-  	padding: 15px;
-  	font-size: 17px;
-  	font-family: sans-serif;
-  	color: #393939;
-  	z-index: -1;
+#footerContainer {
+
+    /* IE10 Consumer Preview */
+    background-image: -ms-linear-gradient(bottom, #111 0%, #444 100%);
+
+    /* Mozilla Firefox */
+    background-image: -moz-linear-gradient(bottom, #111 0%, #444 100%);
+
+    /* Opera */
+    background-image: -o-linear-gradient(bottom, #111 0%, #444 100%);
+
+    /* Webkit (Safari/Chrome 10) */
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #111), color-stop(1, #444));
+
+    /* Webkit (Chrome 11+) */
+    background-image: -webkit-linear-gradient(bottom, #111 0%, #444 100%);
+
+    /* W3C Markup, IE10 Release Preview */
+    background-image: linear-gradient(to top, #111 0%, #444 100%);
+
+    clear: both;
+    width: 100%;
+    text-align: center;
+    float: left;
+    padding: 15px;
+    font-size: 17px;
+    font-family: sans-serif;
+    color: #fff;
+    z-index: -1;
     margin: 0 auto;
-    
+
+    background-color: #000000;
+}
+
+#footerContainer p {
+    color: #FFF;
 }

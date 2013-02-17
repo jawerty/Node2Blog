@@ -1,57 +1,66 @@
-body, html, div, blockquote, img, label, p, h1, h2, h3, h4, h5, h6, pre, ul, ol,  
-li, dl, dt, dd, form, a, fieldset, input, th, td  
-{  
-margin: 0; padding: 0; border: 0; outline: none;  
-}  
-body  
-{  
-line-height: 1;  
-font-size: 100%;
-background-color: #EEE;
-margin: 0 auto;
-height:100%;
-}  
-h1, h2, h3, h4, h5, h6, p, label
-{  
-font-size: 100%;  
-margin: 0px;  
-}  
-h1{
-	padding-top: 10px;
-	padding-bottom: 20px;  
-}
-ul, ol  
-{  
-list-style: none;  
-}  
-a  
-{  
-font-family: verdana;
-color: #505050;  
-text-decoration: none;  
-}  
-a:hover  
-{  
-color: #808080;
-cursor: pointer;
-}  
-p 
-{
-font-size: 120%;
-font-family: sans-serif;
-color: #505050;
-}
-label
-{
-font-family:sans-serif;
-font-style: italic;
-color: #505050;
+html, body {
+    height: 100%;
 }
 
-#box{
-	max-width: 100%;
-	min-width:100%;
-	margin: 0 auto;
+body, html, div, blockquote, img, label, p, h1, h2, h3, h4, h5, h6, pre, ul, ol,
+li, dl, dt, dd, form, a, fieldset, input, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+}
+
+body {
+    line-height: 1;
+    font-size: 100%;
+    background-color: #FFFFFF;
+    margin: 0 auto;
+    height: 100%;
+}
+
+h1, h2, h3, h4, h5, h6, p, label {
+    font-size: 100%;
+    margin: 0px;
+}
+
+h1 {
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+a {
+    font-family: verdana;
+    color: #505050;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #808080;
+    cursor: pointer;
+}
+
+p {
+    font-size: 120%;
+    font-family: sans-serif;
+    color: #505050;
+}
+
+label {
+    font-family: sans-serif;
+    font-style: italic;
+    color: #505050;
+}
+
+#box {
+    max-width: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    height: auto !important;
+    margin: 0 auto -4em;
 }
 
 
