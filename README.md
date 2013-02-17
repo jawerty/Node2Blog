@@ -58,8 +58,9 @@
 
 <img src='https://raw.github.com/jawerty/Node2Blog/master/public/images/screenshot1.png'></img>
 
-<p>If you would like to make a post, go to the the url http://localhost:3000/admin in order to log in and use the admin settings. <b>The password is <i>'narwhal'</i> by default</b>. To change the password, go to the file 'blog.js' and change the p variable at the top to your desired password.</p>
-<h4><b>*Note: Change the t variable in 'blog.js' to your blog title (i.e t = 'Jared's Tech Blog'). <br>Also, Change the st variable in 'blog.js' to whatever you would like your subtitle to be (i.e st = 'I am an App developer').</b></h4>
+<p>If you would like to make a post, go to the the url http://localhost:3000/admin in order to log in and use the admin settings. <b>The password is <i>'kenshiro-o'</i> by default</b>. T
+o change the password, go to the file /config/blogConfig.json and change the 'password' value</p>
+<h4><b>*Note: You can also change the subtitle and title of the blog in the /config/blogConfig.json file (i.e st = 'Exploring the path of the Hackuto-Shinken').</b></h4>
 
 <img src='https://raw.github.com/jawerty/Node2Blog/master/public/images/screenshot2.png'></img>
 
