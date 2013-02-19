@@ -13,14 +13,14 @@ exports.post_view = function(req, res){
       if(post){
       	commentss.find({'postid': id}, function(err, comment){
       		if(comment){
-      			res.render('post_view', {title:t, subTitle:st, post:post, comment:comment, admin:req.session.admin})
+      			res.render('post_view', {title:title, subTitle:subTitle, post:post, comment:comment, admin:req.session.admin})
       		}else{
-      			res.render('post_view', {title:t, subTitle:st, post:post, comment:null, admin:req.session.admin})
+      			res.render('post_view', {title:title, subTitle:subTitle, post:post, comment:null, admin:req.session.admin})
       		}
       	});
         
       }else{
-        res.render('post_view', {title:t, subTitle:st, post:null, comment:null, admin:req.session.admin})
+        res.render('post_view', {title:title, subTitle:subTitle, post:null, comment:null, admin:req.session.admin})
       }
     });
 }
@@ -35,7 +35,7 @@ exports.post_view_post_handler = function(req, res){
 
 	//specific time
 	  var hours = date.getHours();
-	  var minutes = date.getMinutes();
+	  var minutes = date.getMinutes();1
 	  var seconds = date.getSeconds();
 	  //date
 	  var month = date.getMonth() + 1;

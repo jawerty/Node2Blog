@@ -11,9 +11,9 @@ exports.new = function(req, res){
   if(req.session.admin == 'true'){
     post.find({}).sort('-_id').execFind(function(err, posts){
       if(posts){
-        res.render('admin', { title: t, subTitle:st, posts:posts, admin:req.session.admin});
+        res.render('admin', { title: title, subTitle:subTitle, posts:posts, admin:req.session.admin});
       }else{
-        res.render('admin', { title: t, subTitle:st, posts:null, admin:req.session.admin })
+        res.render('admin', { title: title, subTitle:subTitle, posts:null, admin:req.session.admin })
       }
     });    
   }else{
@@ -68,9 +68,9 @@ exports.delete = function(req, res){
     if (req.session.admin == 'true'){
       post.find({}).sort('-_id').execFind(function(err, posts){
       if(posts){
-        res.render('admin_delete', { title: t, subTitle:st, posts:posts, admin:req.session.admin});
+        res.render('admin_delete', { title: title, subTitle:subTitle, posts:posts, admin:req.session.admin});
       }else{
-        res.render('admin_delete', { title: t, subTitle:st, posts:null, admin:req.session.admin })
+        res.render('admin_delete', { title: title, subTitle:subTitle, posts:null, admin:req.session.admin })
       }
       });
     }else{
@@ -78,10 +78,10 @@ exports.delete = function(req, res){
     }
 };
 exports.delete_post_handler = function(req, res){
-  var title = req.body.title;
+  var title1 = req.body.title;
   var time = req.body.time;
   console.log(title);
-    post.findOne({"title": title , "date":time}, function(err, match){
+    post.findOne({"title": title1 , "date":time}, function(err, match){
       if(match){
         match.remove()
         console.log('removed')
@@ -95,7 +95,7 @@ exports.admin_edit = function(req, res){
   if (req.session.admin == 'true'){
     post.findOne({_id: req.params.id}, function(err, post){
       if(post){
-        res.render('admin_edit', {title: t, subTitle:st, post:post, admin:req.session.admin})
+        res.render('admin_edit', {title: title, subTitle:subTitle, post:post, admin:req.session.admin})
       }else{
         res.redirect('/admin')
       }
@@ -106,9 +106,9 @@ exports.admin_edit = function(req, res){
 };
 exports.admin_edit_post_handler = function(req, res){
   body = req.body.body;
-  title = req.body.title;
+  title1 = req.body.title;
 
-  post.findOne({title: title}, function(err, post){
+  post.findOne({title: title1}, function(err, post){
     post.content = body;
     post.save()
     console.log('edited post complete')
@@ -120,8 +120,8 @@ exports.admin_check_post_handler = function(req, res){
   var password1 = req.body.password;
   var password2 = req.body.passwordconfirm;
   console.log('passed')
-  if (password1 == p){
-    console.log('password1 is p')
+  if (password1 == password){
+    console.log('password1 is password')
     if(password1 == password2){
       console.log('password1 is password2')
       req.session.admin = 'true';

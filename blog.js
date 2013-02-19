@@ -1,6 +1,6 @@
- t = 'Node2Blog';
- st = 'A simple blog made in Node.js'
- p = 'narwhal';
+ title = 'Node2Blog';
+ subTitle = 'A simple blog made in Node.js'
+ password = 'narwhal';
 /**
  * Module dependencies.
  */
@@ -9,8 +9,9 @@ var db     = require('./db');
 var post = mongoose.model('post');
 
 
- //change t to whatever you want your blog to be called
- //change p to whatever you want your password to be
+ //change title to whatever you want your blog to be called
+ //change subTitle to whatever you want your blog to be called
+ //change password to whatever you want your password to be
 
  admin = null;
  var error;
@@ -47,8 +48,6 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-
-
 ////////get methods////////
 app.get('/', home.index);
 app.get('/admin/delete', admin.delete);
@@ -63,7 +62,7 @@ app.get('/admin/logout', function(req,res){
 });
 
 app.get('/about', function(req, res) {
-  res.render('about', { title: t, subTitle:st, admin:req.session.admin});
+  res.render('about', { title: title, subTitle:subTitle, admin:req.session.admin});
       
 });
 
