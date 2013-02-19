@@ -28,8 +28,10 @@
 		Easy Heroku integration.
 	</li>
 	<li>
+		Create, edit, and delete your posts.
+	<li>
 		And much more...
-	</li>
+	</li>	
 </ul>
 <h1>Prerequisites</h1>
 <ul>
