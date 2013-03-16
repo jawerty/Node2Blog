@@ -155,13 +155,9 @@ Now you can input any sort of information you'd like in your new widget
 box.**\*Note: Without any posts on your blog, the widget boxes will not
 be positioned adequately.**
 
-\
- \
 
 ### Congratulations you now have a working blog suitable to your basic blogger needs.
 
-\
- \
 
 # Optional: Heroku Setup
 
