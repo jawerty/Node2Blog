@@ -3,7 +3,7 @@ Node2Blog is a simple and easy to use blog template for the casual blogger. For 
 
 ## Features
 -   Intergration of the lightweight rich text editor, NicEdit.
--   Utilizes the Express framework.
+-   Utilizes the Express web framework.
 -   Uses MongoDB on the backend.
 -   An Admin interface, initiated by a password confirmation.
 -   Simplistic design: Allowing for the user to easily build on top of
@@ -16,6 +16,7 @@ Node2Blog is a simple and easy to use blog template for the casual blogger. For 
 
 ## Prerequisites
 -   **Node.js** (version 0.8 or above, download [here][])
+-   **NPM** (comes with recent versions of node)
 -   **Express.js** (version 3 or above, and will be install with npm)
 -   A recent version of **Mongodb** (download [here][1])
 -   **Mongoose** (will be installed with npm)
