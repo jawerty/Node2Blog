@@ -13,20 +13,20 @@ var db_url = process.env.MONGOHQ_URL || "mongodb://localhost:27017/your_database
 
 var postSchema = new Schema({
     id: ObjectId,
-    title: String,
-    title_sub: String,
-    content: String,
-    date: String
+    title: { type: String },
+    title_sub: { type: String },
+    content: { type: String },
+    date: { type: String }
 })
 
 //The MongoDB Schema for your each post's comments
 var commentSchema = new Schema({
 	id: ObjectId,
-	postid: String,
-    title_sub: String,
-	name: String,
-	comment: String,
-	date: String
+	postid: { type: String },
+    title_sub: { type: String },
+	name: { type: String },
+	comment: { type: String },
+	date: { type: String }
 })
 
 
