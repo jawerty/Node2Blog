@@ -56,15 +56,9 @@ html
 							br
 							pre
 							for post in posts
-								table(id='post_table', style='padding-top:10px;border-bottom:1px solid #ddd')
-									tr
-										td
-											#left
-												label(style='font-size: 130%;') -&nbsp&nbsp
-										td
-											#right
-												a(href='/post/#{post._id}/#{post.title_sub}', style='font-size: 130%;')=  post.title
-									tr(style='height:10px;')
+								#recent(style='margin-bottom: 15px;')
+									a(href='/post/#{post._id}/#{post.title_sub}', style='font-size: 130%;')=  post.title
+								
 							
 				#footer
 					#footer_text

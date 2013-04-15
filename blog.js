@@ -77,11 +77,6 @@ app.get('/about', function(req, res) {
 });
 
 
-
-
-
-
-
 //Server start
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Your blog is running on port " + app.get('port'));
