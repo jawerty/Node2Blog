@@ -15,7 +15,7 @@ Node2Blog is a simple and easy to use blog template for the casual blogger. For 
 -   And much more...
 
 ## Prerequisites
--   **Node.js** (version 0.8 or above, download [here][])
+-   **Node.js** (version 0.10.0 or above, download [here][])
 -   **NPM** (comes with recent versions of node)
 -   **Express.js** (version 3 or above, and will be install with npm)
 -   A recent version of **Mongodb** (download [here][1])
