@@ -48,36 +48,38 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-////////get methods////////
+
 app.get('/', home.index);
+app.post('/', home.home_post_handler);
+
 app.get('/admin/delete', admin.delete);
+app.post('/admin/delete', admin.delete_post_handler);
+
 app.get('/admin/new', admin.new);
+app.post('/admin/new', admin.new_post_handler);
+
 app.get('/post/:id/:title', post.post_view);
-app.get('/admin' || '/admin/', admin.admin_check);
+app.post('/post/:id/:title', post.post_view_post_handler);
+
+app.get('/admin', admin.admin_check);
+app.post('/admin', admin.admin_check_post_handler);
+
 app.get('/admin/:id/edit', admin.admin_edit);
+app.post('/admin/:id/edit', admin.admin_edit_post_handler);
+
 app.get('/admin/logout', function(req,res){
   delete req.session.admin;
   console.log('logged-out')
   res.redirect('/');
 });
-
 app.get('/about', function(req, res) {
-  res.render('about', { title: title, subTitle:subTitle, admin:req.session.admin});
-      
+  res.render('about', { title: title, subTitle:subTitle, admin:req.session.admin});   
 });
 
-///////////////////////////
 
 
-///////post methods////////
-app.post('/admin/delete', admin.delete_post_handler);
-app.post('/admin/new', admin.new_post_handler);
-app.post('/admin' || '/admin/', admin.admin_check_post_handler);
-app.post('/admin/:id/edit', admin.admin_edit_post_handler);
-app.post('/', home.home_post_handler);
-app.post('/post/:id/:title', post.post_view_post_handler);
 
-///////////////////////////
+
 
 
 //Server start
