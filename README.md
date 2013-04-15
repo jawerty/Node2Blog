@@ -26,7 +26,6 @@ Node2Blog is a simple and easy to use blog template for the casual blogger. For 
 
 
 ## Tutorial: Getting Started
-***\*Note: Forking Node2Blog is the best way to get the repository.***
 
 In your terminal, 'cd' to the directory where you want to develop the blog and do the following commands
 ```
