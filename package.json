@@ -1,7 +1,7 @@
 {
   "name": "Node2Blog",
   "description": "Simple and easy to use blog template for your casual blogger.",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": {
     "name": "Jared Wright",
     "email": "jawerty210@gmail.com",
@@ -9,7 +9,7 @@
   },
   "private": true,
   "engines": {
-    "node": "0.8.x",
+    "node": "0.1.x",
     "npm":  "1.1.x"
   },
   "scripts": {
@@ -17,9 +17,9 @@
   },
   "dependencies": {
     "express": "3.0.0rc5",
-    "jade": "*",
-    "mongoose":"*",
-    "mongodb":"*"
+    "jade": "0.28.2",
+    "mongoose":"3.6.5",
+    "mongodb":"1.2.14"
   }
 }
 
