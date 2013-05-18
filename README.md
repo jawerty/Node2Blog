@@ -161,9 +161,12 @@ be positioned adequately.**
 
 ### Congratulations you now have a working blog suitable to your basic blogger needs.
 
+# RSS Setup
+All you're going to be doing here is change a few variables in the blog.js file. (At the top) Change the author variable to your name. Change the icon variable to the file of your icon and make sure it is in the '/public/images' directiory.
+
+Go to [http://localhost:3000/rss.xml][] to see the generated rss file.
 
 # Optional: Heroku Setup
-
 
 #### **\*Note: You must have a heroku account along with the [Heroku Toolbelt][] to follow this part of the tutorial**
 
@@ -180,8 +183,12 @@ This addon is a **free** starter package for running a server with a
 MongoDB backend by MongoHQ. This is essentially all you need to setup
 the basic functions to your new blog.
 
-# Contact
 
+# Contributors 
+* [jawerty](https://github.com/jawerty) *creator
+* [patgannon](https://github.com/patgannon) *RSS support
+
+# Contact
 
 **Contact the developer here**\
 Email: jawerty210@gmail.com\

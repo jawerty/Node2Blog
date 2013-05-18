@@ -2,8 +2,8 @@
  subTitle = 'A simple blog made in Node.js'
  password = 'narwhal';
  author = 'Unknown';
- siteUrl = 'http://www.example.com/';
- imageUrl = 'http://example.com/icon.png';
+ icon = 'file_name.ico'
+ var siteUrl, imageUrl
  
 /**
  * Module dependencies.
@@ -51,9 +51,16 @@ app.configure(function(){
 });
 
 app.configure('development', function(){
+  siteUrl = 'http://localhost:'+app.get('port')+'/';
+  imageUrl = siteUrl+'images/'+icon;
   app.use(express.errorHandler());
 });
 
+app.configure('production', function(){
+  siteUrl = 'http://'+req.host+'/';
+  imageUrl = siteUrl+'images/'+icon;
+  app.use(express.errorHandler()); 
+});
 
 app.get('/', home.index);
 app.post('/', home.home_post_handler);
@@ -78,9 +85,11 @@ app.get('/admin/logout', function(req,res){
   console.log('logged-out')
   res.redirect('/');
 });
+
 app.get('/about', function(req, res) {
   res.render('about', { title: title, subTitle:subTitle, admin:req.session.admin});   
 });
+
 app.get('/rss.xml', function(req, res) {
   //cache for 10 minutes
   if (!feedTime || ((new Date()).getTime() - feedTime.getTime() > 600000)) {
