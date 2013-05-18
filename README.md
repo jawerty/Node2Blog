@@ -185,13 +185,15 @@ the basic functions to your new blog.
 
 
 # Contributors 
-* [jawerty](https://github.com/jawerty) *creator
+* [jawerty](https://github.com/jawerty)
 * [patgannon](https://github.com/patgannon) *RSS support
 
 # Contact
 
-**Contact the developer here**\
-Email: jawerty210@gmail.com\
+**Contact the developer here**
+
+Email: jawerty210@gmail.com
+
 Website: [http://wrightdev.herokuapp.com][]
 
 # MIT LICENSE
