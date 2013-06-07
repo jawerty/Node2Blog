@@ -90,6 +90,7 @@ app.get('/about', function(req, res) {
   res.render('about', { title: title, subTitle:subTitle, admin:req.session.admin});   
 });
 
+/*RSS Feed optimization*/
 app.get('/rss.xml', function(req, res) {
   //cache for 10 minutes
   if (!feedTime || ((new Date()).getTime() - feedTime.getTime() > 600000)) {
