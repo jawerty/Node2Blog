@@ -91,7 +91,6 @@ Now modify the get functions in the 'blog.js' file.
 
 The new modified code
 ```
-////////get////////
 app.get('/', home.index);
 app.get('/admin/delete', admin.delete);
 app.get('/admin/new', admin.new);
@@ -108,7 +107,7 @@ app.get('/about', function(req, res) {
       
 });
 
-//The code you added
+//The code you just added
 app.get('/new-page-name', function(req, res) {
   res.render('new_page_name', { title: t, admin:req.session.admin});
 });
