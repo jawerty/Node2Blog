@@ -5,7 +5,7 @@ var post = mongoose.model('post');
 var error;
 var date 	 = new Date();
 
- function formatAMPM(date) {
+function formatAMPM(date) {
   var hours = date.getHours();
   var minutes = date.getMinutes();
   var ampm = hours >= 12 ? 'pm' : 'am';
@@ -14,7 +14,7 @@ var date 	 = new Date();
   minutes = minutes < 10 ? '0'+minutes : minutes;
   var strTime = hours + ':' + minutes + ' ' + ampm;
   return strTime;
-  }
+}
   
 //new post functions
 exports.new = function(req, res){
@@ -77,6 +77,7 @@ exports.delete = function(req, res){
       res.redirect('/')
     }
 };
+
 exports.delete_post_handler = function(req, res){
   var title1 = req.body.title;
   var time = req.body.time;
@@ -138,6 +139,7 @@ exports.admin_check_post_handler = function(req, res){
     res.redirect('/admin');
   }
 };
+
 exports.admin_check = function(req, res){
 
   res.render('admin_check', {error:error});
