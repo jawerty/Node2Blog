@@ -5,6 +5,7 @@
 	max-width: 1000px;
 
 }
+
 #wrapper {
 	float:left;
 	background-color: #f0f0f0;
@@ -17,9 +18,11 @@
 	
 
 }
+
 .nicEdit-selected {
         border: 1px solid #ddd !important;
 }
+
 .nicEdit-main {
 	background-color: #fefefe;
 }
@@ -27,6 +30,7 @@
 .nicEdit-button {
         background-color: #fff !important;
 }
+
 iframe::-webkit-scrollbar {
     width: 10px;
     
@@ -61,6 +65,7 @@ iframe::-webkit-scrollbar-thumb {
     white-space: -o-pre-wrap;   /* Opera 7 */    
     word-wrap: break-word;      /* IE */
 }
+
 .container {
 
 	   white-space: pre-wrap;      /* CSS3 */   
@@ -69,20 +74,24 @@ iframe::-webkit-scrollbar-thumb {
    white-space: -o-pre-wrap;   /* Opera 7 */    
    word-wrap: break-word;      /* IE */
 }
+
 .container h1 {
 	font-size: 70px;
   	font-family: sans-serif;
   	color: #505050;
 }
+
 .container p {
 	font-size: 20px;
   	font-family: sans-serif;
   	color: #393939;
 }
+
 #formNew{
 	margin-left: 20px;
 	color:505050;
 }
+
 #formNew input[type='text'] {
 	border: 1px solid #ddd;
 	border-radius: 5px;
@@ -93,6 +102,7 @@ iframe::-webkit-scrollbar-thumb {
     color:#505050;
 
 }
+
 #formNew input[type='submit'] {
 	border: 1px solid #A0A0A0;
 	border-radius: 5px;
@@ -102,11 +112,13 @@ iframe::-webkit-scrollbar-thumb {
 	background-color: #858585;
 	color: #fff;
 }
+
 #formNew input[type='submit']:active{
 	color:#858585;
 	background-color: #f6f6f6;
 
 }
+
 #formNewTextarea {
 	border-radius: 5px;
 	border: 1px solid #ddd;
@@ -120,9 +132,11 @@ iframe::-webkit-scrollbar-thumb {
     background: #fff;
     color:#505050;
 }
+
 #post_table{
 
 }
+
 .post{
 	border: 1px solid #ccc;
 	background: #f7f7f7;
@@ -134,14 +148,17 @@ iframe::-webkit-scrollbar-thumb {
    white-space: -o-pre-wrap;   /* Opera 7 */    
    word-wrap: break-word;      /* IE */
 }
+
 #left{
 	float:left;
 	width:20px;
 }
+
 #right{
 	float:left;
 	width: 140px;
 }
+
 #comment_form{
 	border: 1px solid #ccc;
 	border-radius: 5px;
@@ -163,11 +180,13 @@ iframe::-webkit-scrollbar-thumb {
 	background-color: #858585;
 	color: #fff;
 }
+
 #submitComment:active{
 	color:#858585;
 	background-color: #f6f6f6;
 
 }
+
 #nameComment{
 	border: 1px solid #ccc;
 	border-radius: 5px;
@@ -179,6 +198,7 @@ iframe::-webkit-scrollbar-thumb {
 	outline:0px !important;
     -webkit-appearance:none;
 }
+
 #admin_check{
 	border: 1px solid #ccc;
 	border-radius: 5px;
