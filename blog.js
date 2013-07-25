@@ -2,8 +2,8 @@
  subTitle = 'A simple blog made in Node.js'
  password = 'narwhal';
  author = 'Unknown';
- icon = 'file_name.ico'
- var siteUrl, imageUrl
+ icon = 'file_name.ico';
+ var siteUrl, imageUrl;
  
 /**
  * Module dependencies.
