@@ -1,5 +1,8 @@
 {
-  "name": "Kenshiro's Journey",
-  "st": "Exploring the path of the Hackuto-Shinken",
-  "password": "kenshiro-o"
+    "name": "Your blog name",
+    "subTitle": "Your blog subtitle name",
+    "password": "Your mongoDB password",
+    "port": "Your blog port" ,
+    "facebookAppId": "Your Facebook APP ID",
+    "facebookAppSecret": "your facebook APP Secret"
 }

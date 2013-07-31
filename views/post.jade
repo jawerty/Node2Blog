@@ -1,0 +1,7 @@
+extends default-layout
+
+block blog-content
+  .post-full
+    h2.post-title #{post.title}
+    - var content = post.content
+    p.post-content!= content

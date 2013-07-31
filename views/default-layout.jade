@@ -1,0 +1,39 @@
+doctype
+html(lang="en")
+  head
+    title= pageTile
+    link(rel="stylesheet", href="/stylesheets/style.css")
+
+  body
+    header
+      h1= blogTitle
+      h2= blogSubtitle
+
+
+    #content
+      #main-content
+        block blog-content
+
+
+
+      #widgets
+        #widget-pages
+          h3 Pages
+          h4
+            a(href="/") Home
+          h4
+            a(href="/about") About
+          h4
+            a(href="#") Contact
+
+
+        #widget-posts
+          h3 Latest Posts
+
+          ul
+            for post in posts
+              li #{post.title}
+
+
+    footer
+      p Powered by Node2Blog

@@ -1,16 +1,12 @@
 var blogConfig = require("./config/blogConfig");
-console.log("Blog config loaded [name=%s, subtitle=%s]", blogConfig.name, blogConfig.st);
+console.log("Blog config loaded [name=%s, subtitle=%s]", blogConfig.name, blogConfig.subTitle);
 
-t = blogConfig.name;
-st = blogConfig.st;
 p = blogConfig.password;
 
 /**
  * Module dependencies.
  */
-var mongoose = require('mongoose');
 var db = require('./db');
-var post = mongoose.model('post');
 
 admin = null;
 var error;
@@ -47,12 +43,20 @@ app.configure('development', function () {
   app.use(express.errorHandler());
 });
 
+//Setting up "global locals" that will be used across the whole application
+app.locals = ({
+    blogTitle: blogConfig.name,
+    blogSubtitle: blogConfig.subTitle
+});
+
 
 ////////get methods////////
 app.get('/', home.index);
 app.get('/admin/delete', admin.delete);
 app.get('/admin/new', admin.new);
-app.get('/post/:id/:title', post.post_view);
+
+app.get('/post/:id/:title', post.get);
+
 app.get('/admin' || '/admin/', admin.admin_check);
 app.get('/admin/:id/edit', admin.admin_edit);
 app.get('/admin/logout', function (req, res) {
@@ -62,7 +66,7 @@ app.get('/admin/logout', function (req, res) {
 });
 
 app.get('/about', function (req, res) {
-  res.render('about', { title: t, subTitle: st, admin: req.session.admin});
+  res.render('about', { title: t, subTitle: st, admin: req.session.admin, posts: []});
 
 });
 
@@ -75,7 +79,8 @@ app.post('/admin/new', admin.new_post_handler);
 app.post('/admin' || '/admin/', admin.admin_check_post_handler);
 app.post('/admin/:id/edit', admin.admin_edit_post_handler);
 app.post('/', home.home_post_handler);
-app.post('/post/:id/:title', post.post_view_post_handler);
+
+app.post('/post/:id/:title', post.saveComment);
 
 ///////////////////////////
 

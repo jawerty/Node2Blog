@@ -1,7 +1,8 @@
 //Prerequisites 
 var mongoose = require('mongoose');
 var db 		 = require('../db');
-var post = mongoose.model('post');
+var PostModel = require('./../db/model/post');
+
 var error;
 var date 	 = new Date();
 //var post     = mongoose.model( 'Post' );
@@ -9,7 +10,7 @@ var date 	 = new Date();
 //new post functions
 exports.new = function(req, res){
   if(req.session.admin == 'true'){
-    post.find({}).sort('-_id').execFind(function(err, posts){
+    PostModel.find({}).sort({date: "desc"}).execFind(function(err, posts){
       if(posts){
         res.render('admin', { title: t, subTitle:st, posts:posts, admin:req.session.admin});
       }else{
@@ -21,52 +22,41 @@ exports.new = function(req, res){
   }
 
 };
-exports.new_post_handler = function(req, res){
-  
-  //specific time
-  var hours = date.getHours();
-  var minutes = date.getMinutes();
-  var seconds = date.getSeconds();
-  //date
-  var month = date.getMonth() + 1;
-  var year = date.getFullYear();
-  var day = date.getDate();
 
-  function formatAMPM(date) {
-  var hours = date.getHours();
-  var minutes = date.getMinutes();
-  var ampm = hours >= 12 ? 'pm' : 'am';
-  hours = hours % 12;
-  hours = hours ? hours : 12; // the hour '0' should be '12'
-  minutes = minutes < 10 ? '0'+minutes : minutes;
-  var strTime = hours + ':' + minutes + ' ' + ampm;
-  return strTime;
-  }
-  //organize time so it looks nice
-  var time = month + '/' + day + '/' + year + " at " + formatAMPM(date);
+
+exports.new_post_handler = function(req, res){
+  //TODO: Perform some kind of input validation here
+
   var title = req.body.title;
   var title_sub = title.split(' ').join('-');
-  
 
   var body = req.body.body;
   
   //Submitting to database
-  var newPost = post({
+  var newPost = new PostModel({
     title: title,
     title_sub: title_sub,
-    content: body,
-    date: time
+    content: body
   });
-  newPost.save();
 
-  //redirecting to homepage
-  res.redirect('/');
+  newPost.save(function(err){
+      if(err){
+          //TODO: Gracefully handle this error
+          console.log("An error occurred while trying to save post [post-title=%s, error=%s]", title, err);
+      }else{
+          console.log("Successfully saved new post [post-title=%s]", title);
+      }
+
+      //redirecting to homepage
+      res.redirect('/');
+  });
+
 };
 
 //deleting posts functions
 exports.delete = function(req, res){
     if (req.session.admin == 'true'){
-      post.find({}).sort('-_id').execFind(function(err, posts){
+      PostModel.find({}).sort('-_id').execFind(function(err, posts){
       if(posts){
         res.render('admin_delete', { title: t, subTitle:st, posts:posts, admin:req.session.admin});
       }else{
@@ -77,11 +67,13 @@ exports.delete = function(req, res){
       res.redirect('/')
     }
 };
+
+
 exports.delete_post_handler = function(req, res){
   var title = req.body.title;
   var time = req.body.time;
   console.log(title);
-    post.findOne({"title": title , "date":time}, function(err, match){
+    PostModel.findOne({"title": title , "date":time}, function(err, match){
       if(match){
         match.remove()
         console.log('removed')
@@ -93,7 +85,7 @@ exports.delete_post_handler = function(req, res){
 };
 exports.admin_edit = function(req, res){
   if (req.session.admin == 'true'){
-    post.findOne({_id: req.params.id}, function(err, post){
+    PostModel.findOne({_id: req.params.id}, function(err, post){
       if(post){
         res.render('admin_edit', {title: t, subTitle:st, post:post, admin:req.session.admin})
       }else{
@@ -108,13 +100,15 @@ exports.admin_edit_post_handler = function(req, res){
   body = req.body.body;
   title = req.body.title;
 
-  post.findOne({title: title}, function(err, post){
+  PostModel.findOne({title: title}, function(err, post){
     post.content = body;
     post.save()
     console.log('edited post complete')
     res.redirect('/')
   })
 }
+
+
 //admin check functions
 exports.admin_check_post_handler = function(req, res){
   var password1 = req.body.password;

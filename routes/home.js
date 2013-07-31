@@ -1,20 +1,23 @@
 //PREREQUISITES
-var mongoose = require('mongoose');
-var db 		 = require('../db');
-var post = mongoose.model('post');
+
+var PostModel = require('./../db/model/post');
 
 //Homepage functions
-exports.index = function(req, res){	
+exports.index = function(req, res){
 
-  	post.find({}).sort('-_id').execFind(function(err, posts){
-  		if(posts){
-  			res.render('home', { title: t, subTitle:st, posts:posts, admin:req.session.admin});
-  		}else{
-  			res.render('home', { title: t, subTitle:st, posts:null, admin:req.session.admin })
+  	PostModel.find({}).sort({date: "desc"}).execFind(function(err, posts){
+  		//TODO: Handle errors gracefully
+        if(!posts){
+  			console.log("No posts found");
+            posts = [];
+
   		}
+        res.render("index", {pageTitle: "Blog test", blogTitle: "Kenshiro Blog", subTitle: "Hackuto stuff", posts: posts});
   	});
 
 };
+
+
 exports.home_post_handler = function(req, res){
 	
 

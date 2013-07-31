@@ -1,0 +1,11 @@
+extends default-layout
+
+block blog-content
+  for post in posts
+    .post-extract
+      h2.post-title
+        - var postTitleLink = encodeURI(post.title)
+        a(href="/post/#{post._id}/#{postTitleLink}") #{post.title}
+      - var content = post.content
+      p.post-content!= content
+
