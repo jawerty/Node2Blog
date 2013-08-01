@@ -193,7 +193,7 @@ the basic functions to your new blog.
 
 Email: jawerty210@gmail.com
 
-Website: <http://wrightdev.herokuapp.com>
+Website: <http://jawerty.github.io>
 
 # MIT LICENSE
 
