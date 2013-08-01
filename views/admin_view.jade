@@ -1,0 +1,24 @@
+extends default-layout
+
+block blog-content
+  script(src="../javascripts/nicEdit.js", type="text/javascript")
+  script(type='text/javascript')
+    bkLib.onDomLoaded(nicEditors.allTextAreas);
+
+  #admin-bar
+    ol
+      li
+        a(href="/admin/new") Create Post
+      li
+        a(href="#") Edit Post
+      li
+        a(href="/admin/delete") Delete Post
+      li
+        a(href="/admin/logout") Log out
+
+  .post-new
+    h2#new-post-header New Post
+    form(id="new-post-form", method="post")
+      input(id="post-title-box" ,type="text", name="title", placeholder="Title")
+      textarea(id="post-new-content", name="body", placeholder="Write your post here")
+      input(id="submit-post-btn", type="submit", value="Create")

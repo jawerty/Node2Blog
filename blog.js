@@ -74,10 +74,10 @@ app.get('/about', function (req, res) {
 
 
 ///////post methods////////
-app.post('/admin/delete', admin.delete_post_handler);
-app.post('/admin/new', admin.new_post_handler);
+app.post('/admin/delete', admin.deletePost);
+app.post('/admin/new', admin.createNewPost);
 app.post('/admin' || '/admin/', admin.admin_check_post_handler);
-app.post('/admin/:id/edit', admin.admin_edit_post_handler);
+app.post('/admin/:id/edit', admin.editPost);
 app.post('/', home.home_post_handler);
 
 app.post('/post/:id/:title', post.saveComment);

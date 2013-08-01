@@ -2,6 +2,7 @@
 ====================
 * MAJOR refactoring of API (in progress).
 * Revamping of layout as well (in progress).
+* Work on Admin, new post view
 
 0.2.2 / 2013-02-23
 ====================

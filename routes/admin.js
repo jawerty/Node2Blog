@@ -1,21 +1,23 @@
 //Prerequisites 
 var mongoose = require('mongoose');
-var db 		 = require('../db');
 var PostModel = require('./../db/model/post');
 
 var error;
 var date 	 = new Date();
-//var post     = mongoose.model( 'Post' );
 
 //new post functions
 exports.new = function(req, res){
   if(req.session.admin == 'true'){
     PostModel.find({}).sort({date: "desc"}).execFind(function(err, posts){
-      if(posts){
-        res.render('admin', { title: t, subTitle:st, posts:posts, admin:req.session.admin});
-      }else{
-        res.render('admin', { title: t, subTitle:st, posts:null, admin:req.session.admin })
-      }
+        //TODO: Handle errors gracefully
+        res.render("admin_view", {posts: posts, admin:req.session.admin});
+
+
+//      if(posts){
+//        res.render('admin', { title: "TEST", subTitle: "TEST", posts:posts, admin:req.session.admin});
+//      }else{
+//        res.render('admin', { title: "TEST", subTitle: "TEST", posts: [], admin:req.session.admin })
+//      }
     });    
   }else{
     res.redirect('/') 
@@ -24,7 +26,7 @@ exports.new = function(req, res){
 };
 
 
-exports.new_post_handler = function(req, res){
+exports.createNewPost = function(req, res){
   //TODO: Perform some kind of input validation here
 
   var title = req.body.title;
@@ -58,9 +60,9 @@ exports.delete = function(req, res){
     if (req.session.admin == 'true'){
       PostModel.find({}).sort('-_id').execFind(function(err, posts){
       if(posts){
-        res.render('admin_delete', { title: t, subTitle:st, posts:posts, admin:req.session.admin});
+        res.render('admin_delete', { title: "Test", subTitle: "TEST", posts:posts, admin:req.session.admin});
       }else{
-        res.render('admin_delete', { title: t, subTitle:st, posts:null, admin:req.session.admin })
+        res.render('admin_delete', { title: "Test", subTitle: "TEST", posts:null, admin:req.session.admin })
       }
       });
     }else{
@@ -69,7 +71,7 @@ exports.delete = function(req, res){
 };
 
 
-exports.delete_post_handler = function(req, res){
+exports.deletePost = function(req, res){
   var title = req.body.title;
   var time = req.body.time;
   console.log(title);
@@ -96,7 +98,7 @@ exports.admin_edit = function(req, res){
     res.redirect('/')
   }
 };
-exports.admin_edit_post_handler = function(req, res){
+exports.editPost = function(req, res){
   body = req.body.body;
   title = req.body.title;
 
