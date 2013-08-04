@@ -1,12 +1,11 @@
-var blogConfig = require("./config/blogConfig");
+var blogConfig = require("./config/blogConfig"),
+    postCache = require("./cache/postCache"),
+    db = require('./db/dbConnection');
+
 console.log("Blog config loaded [name=%s, subtitle=%s]", blogConfig.name, blogConfig.subTitle);
 
 p = blogConfig.password;
 
-/**
- * Module dependencies.
- */
-var db = require('./db');
 
 admin = null;
 var error;
@@ -37,6 +36,19 @@ app.configure(function () {
   }));
   app.use(express.static(path.join(__dirname, 'public')));
   app.use(app.router);
+
+  //Handling of 404 and 500 pages
+  app.use(function(req, res){
+      res.status(400);
+      res.render("404");
+    });
+
+   app.use(function(error, req, res, next) {
+        res.status(500);
+        res.render("500");
+    });
+
+
 });
 
 app.configure('development', function () {
@@ -46,7 +58,8 @@ app.configure('development', function () {
 //Setting up "global locals" that will be used across the whole application
 app.locals = ({
     blogTitle: blogConfig.name,
-    blogSubtitle: blogConfig.subTitle
+    blogSubtitle: blogConfig.subTitle,
+    fbAppId: blogConfig.facebookAppId
 });
 
 
@@ -66,11 +79,9 @@ app.get('/admin/logout', function (req, res) {
 });
 
 app.get('/about', function (req, res) {
-  res.render('about', { title: t, subTitle: st, admin: req.session.admin, posts: []});
+  res.render('about', {admin: req.session.admin});
 
 });
-
-///////////////////////////
 
 
 ///////post methods////////
@@ -82,10 +93,22 @@ app.post('/', home.home_post_handler);
 
 app.post('/post/:id/:title', post.saveComment);
 
-///////////////////////////
 
 
-//Server start
-http.createServer(app).listen(app.get('port'), function () {
-  console.log("Your blog is running on port " + app.get('port'));
-});
+//Load the latest posts
+postCache.setApp(app);
+postCache.loadPosts(function(err, posts){
+    if(err){
+        //Cannot start the server as an error occured loading posts
+        console.log("An error occurred while trying to load posts [error=%s]", err);
+        throw new Error("" + err);
+    }else{
+        console.log("Loaded %d posts", posts.length);
+        //Server start
+        http.createServer(app).listen(app.get('port'), function () {
+            console.log("Your blog is running on port " + app.get('port'));
+        });
+    }
+})
+
+

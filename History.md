@@ -3,6 +3,7 @@
 * MAJOR refactoring of API (in progress).
 * Revamping of layout as well (in progress).
 * Work on Admin, new post view
+* Improved look and feel, error handling (404 + 500) and code quality
 
 0.2.2 / 2013-02-23
 ====================

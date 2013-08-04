@@ -1,6 +1,7 @@
 //Prerequisites 
 var mongoose = require('mongoose');
 var PostModel = require('./../db/model/post');
+var postCache = require("./../cache/postCache");
 
 var error;
 var date 	 = new Date();
@@ -8,17 +9,7 @@ var date 	 = new Date();
 //new post functions
 exports.new = function(req, res){
   if(req.session.admin == 'true'){
-    PostModel.find({}).sort({date: "desc"}).execFind(function(err, posts){
-        //TODO: Handle errors gracefully
-        res.render("admin_view", {posts: posts, admin:req.session.admin});
-
-
-//      if(posts){
-//        res.render('admin', { title: "TEST", subTitle: "TEST", posts:posts, admin:req.session.admin});
-//      }else{
-//        res.render('admin', { title: "TEST", subTitle: "TEST", posts: [], admin:req.session.admin })
-//      }
-    });    
+    res.render("admin_view", {admin:req.session.admin});
   }else{
     res.redirect('/') 
   }
@@ -27,30 +18,51 @@ exports.new = function(req, res){
 
 
 exports.createNewPost = function(req, res){
-  //TODO: Perform some kind of input validation here
-
   var title = req.body.title;
-  var title_sub = title.split(' ').join('-');
+  if(!title || title.length == 0){
+      console.log("Post title provided is either null or empty. Returning an error message");
+      res.status(500);
+      res.render('500');
+      return;
+  }
+
+  var friendly_link_title = title.split(" ").join("-");
+  friendly_link_title = encodeURI(friendly_link_title);
 
   var body = req.body.body;
+  if(!body || body.length == 0){
+      console.log("Post content provided is either null or empty. Returning an error message");
+      res.status(500);
+      res.render('500');
+      return;
+  }
   
   //Submitting to database
   var newPost = new PostModel({
     title: title,
-    title_sub: title_sub,
+    friendly_link_title: friendly_link_title,
     content: body
   });
 
   newPost.save(function(err){
       if(err){
-          //TODO: Gracefully handle this error
           console.log("An error occurred while trying to save post [post-title=%s, error=%s]", title, err);
+          res.status(500);
+          res.render('500');
       }else{
           console.log("Successfully saved new post [post-title=%s]", title);
-      }
+          postCache.loadPosts(function(err, posts){
+              if(err){
+                  console.log("Unable to reload posts after saving a new one [error=%s]", err);
+                  res.status(500);
+                  res.render('500');
+              }else{
+                  console.log("Successfully reloaded posts [number-of-posts=%d]", posts.length);
+                  res.redirect('/');
+              }
+          });
 
-      //redirecting to homepage
-      res.redirect('/');
+      }
   });
 
 };
@@ -105,7 +117,7 @@ exports.editPost = function(req, res){
   PostModel.findOne({title: title}, function(err, post){
     post.content = body;
     post.save()
-    console.log('edited post complete')
+    console.log('edited post complete');
     res.redirect('/')
   })
 }

@@ -2,38 +2,47 @@ doctype
 html(lang="en")
   head
     title= pageTile
+    link(rel="stylesheet", type="text/css", href="http://fonts.googleapis.com/css?family=Lato")
     link(rel="stylesheet", href="/stylesheets/style.css")
 
+  #fb-root
+  script.
+    (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=#{fbAppId}";
+    fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
   body
-    header
-      h1#blog-main-title= blogTitle
-      h2#blog-sub-title= blogSubtitle
+    #page-wrapper
+      header
+        h1#blog-main-title= blogTitle
+        h2#blog-sub-title= blogSubtitle
 
 
-    #content
-      #main-content
-        block blog-content
+      #content
+        #main-content
+          block blog-content
 
 
-
-      #widgets
-        #widget-pages
-          h3 Pages
-          h4
-            a(href="/") Home
-          h4
-            a(href="/about") About
-          h4
-            a(href="#") Contact
+        #widgets
+          #widget-pages
+            h3.widget-title Pages
+            a.widget-section-link(href="/") Home
+            a.widget-section-link(href="/about") About
+            a.widget-section-link(href="#") Contact
 
 
-        #widget-posts
-          h3 Latest Posts
-
-          ul
+          #widget-posts
+            h3.widget-title Latest Posts
             for post in posts
-              li #{post.title}
+              a.widget-section-link(href="/post/#{post._id}/#{post.friendly_link_title}") #{post.title}
 
 
     footer
-      p Powered by Node2Blog
+      p.footer-note Powered by
+        a.footer-link(href="https://github.com/kenshiro-o/Node2Blog")  Node2Blog
+      .footer-logos
+        img(src="/images/node-js-logo.jpeg", alt="node.js official logo")

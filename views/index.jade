@@ -4,8 +4,10 @@ block blog-content
   for post in posts
     .post-extract
       h2.post-title
-        - var postTitleLink = encodeURI(post.title)
-        a(href="/post/#{post._id}/#{postTitleLink}") #{post.title}
+        a(href="/post/#{post._id}/#{post.friendly_link_title}") #{post.title}
+      h5.post-date #{post.date.toDateString()}
       - var content = post.content
-      p.post-content!= content
+      .post-content!= content
+
+
 

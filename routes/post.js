@@ -9,8 +9,9 @@ exports.get = function(req, res){
 
 	PostModel.findById(identifier, function(err, post){
         if(err){
-            //TODO Handle this error
             console.log("Unable to retrieve post [post-id=%s]", req.params.id);
+            res.status(500);
+            res.render('500');
         }else if(post){
       	  //TODO: Get the comments associated with the post
 //          CommentModel.find({'post_id': identifier}, function(err, comment){
@@ -18,13 +19,14 @@ exports.get = function(req, res){
 //                console.log("An error occurred when trying to retrieve comments [post-id=%s]", req.params.id);
 //            } else{
 
-      			res.render("post", {title :post.title, subTitle: post.title_sub, post: post, comment:null, admin:req.session.admin, posts: []});
+      			res.render("post", {title :post.title, post: post, comments:[], admin:req.session.admin});
 //      		}
 //      	});
         
       }else{
-          //TODO: We should redirect toward an error page here
-          res.render('post_view', {title:t, subTitle:st, post:null, comment:null, admin:req.session.admin})
+            //Post does not exist - return 404
+            res.status(400);
+            res.render("404");
       }
     });
 }

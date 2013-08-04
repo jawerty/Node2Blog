@@ -1,7 +1,7 @@
 //PREREQUISITES
-var mongoose = require('mongoose')
-var Schema = mongoose.Schema
-    ,ObjectId = Schema.ObjectId;
+var mongoose = require('mongoose'),
+    Schema = mongoose.Schema,
+    ObjectId = Schema.ObjectId;
 
 
 //process.env.MONGOHQ_URL is for deploying on heroku

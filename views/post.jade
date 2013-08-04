@@ -1,7 +1,20 @@
 extends default-layout
 
 block blog-content
+
   .post-full
     h2.post-title #{post.title}
+    h6.post-date #{post.date.toDateString()}
     - var content = post.content
-    p.post-content!= content
+    .post-content!= content
+    .post-comments
+      h5 Comments
+      for comment in comments
+          p.post-comment #{comment}
+
+  #social-media-container
+    .fb-like(data-href="http://kenshiro.me", data-width="100px", data-show-faces="false", data-send="false", data-layout="button_count")
+    .tweetbtn
+      a(href="https://twitter.com/share", class="twitter-share-button", data-size="medium") Tweet
+      script.
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");

@@ -3,8 +3,7 @@ var mongoose = require("mongoose"),
 
 var PostSchema = new mongoose.Schema({
     title: {type: String, required: true, index: {unique: true}},
-    //TODO: Is this really needed? No in my opinion. Posts only have a title, sub-titles are useless
-    title_sub: String,
+    friendly_link_title: {type: String, required: true},
     content: {type: String, required: true},
     date: {type: Date, default: new Date()}
 });
