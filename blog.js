@@ -91,7 +91,7 @@ app.post('/admin' || '/admin/', admin.admin_check_post_handler);
 app.post('/admin/:id/edit', admin.editPost);
 app.post('/', home.home_post_handler);
 
-app.post('/post/:id/:title', post.saveComment);
+app.post('/post/:id/:friendlyLink', post.saveComment);
 
 
 
@@ -105,8 +105,9 @@ postCache.loadPosts(function(err, posts){
     }else{
         console.log("Loaded %d posts", posts.length);
         //Server start
-        http.createServer(app).listen(app.get('port'), function () {
-            console.log("Your blog is running on port " + app.get('port'));
+        var serverPort = blogConfig.port;
+        http.createServer(app).listen(serverPort, function () {
+            console.log("Your blog is running on port " + serverPort);
         });
     }
 })

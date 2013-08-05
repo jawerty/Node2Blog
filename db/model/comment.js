@@ -3,7 +3,6 @@ var mongoose = require("mongoose"),
 
 var commentSchema = new mongoose.Schema({
     post_id: {type: ObjectId, ref: "post"},
-    title: String,
     name: {type: String, require: true},
     comment: {type: String, required: true},
     date: {type: Date, default: new Date()}

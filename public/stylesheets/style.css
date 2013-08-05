@@ -171,13 +171,63 @@ header{
     font-family: Tahoma, Arial, Helvetica, sans-serif !important;
     font-size: 1em !important;
 }
-
 .post-comments{
-    border-top: 1px solid #000000;
-    width: 100%;
-    padding-top: 2px;
+    margin-top: 10px;
+    padding-top: 5px;
+    border-top: 1px solid #000;
 }
 
+#comment-form{
+    width: 60%;
+    margin-left: 2px;
+}
+
+.commenter-name-input{
+    display: block;
+    width: 50%;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+
+.comment-area{
+    display: block;
+    width: 80%;
+    margin: 0;
+    border-radius: 5px;
+}
+
+.submit-comment-button{
+    margin: 5px 0;
+    padding: 3px 5px;
+    background-color: #0dd257;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.post-comment-container{
+    width: 100%;
+    padding-top: 3px;
+    margin: 5px 0;
+    background-color: #e6e6e6;
+}
+
+.post-comment{
+    margin-bottom: 3px;
+    margin-top: 2px;
+    font-size: 0.9em;
+    color: #131313;
+}
+
+.comment-signature{
+    margin: 0;
+    color: #100d2c;
+    font-size: 0.8em;
+    font-style: italic;
+}
+
+/***********************************************************************************************************************
+****************************************************** ADMIN ***********************************************************
+************************************************************************************************************************/
 
 #admin-bar{
     width: 100%;

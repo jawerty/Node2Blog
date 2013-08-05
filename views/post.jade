@@ -8,9 +8,18 @@ block blog-content
     - var content = post.content
     .post-content!= content
     .post-comments
-      h5 Comments
+      - var commentStr = comments.length == 1 ? "Comment" : "Comments"
+      h4 #{comments.length} #{commentStr}
+
+      form#comment-form(method="post", action="/post/#{post._id}/#{post.friendly_link_title}")
+        input.commenter-name-input(name="name", type="text", placeholder="name")
+        textarea.comment-area(name="comment", placeholder="comment", rows="5")
+        input.submit-comment-button(type="submit", value="Submit comment")
+
       for comment in comments
-          p.post-comment #{comment}
+          .post-comment-container
+            p.post-comment #{comment.comment}
+            p.comment-signature #{comment.name} on #{comment.date.toDateString()} at #{comment.date.toLocaleTimeString()}
 
   #social-media-container
     .fb-like(data-href="http://kenshiro.me", data-width="100px", data-show-faces="false", data-send="false", data-layout="button_count")
