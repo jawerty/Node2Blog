@@ -6,6 +6,7 @@
 * Improved look and feel, error handling (404 + 500) and code quality
 * Readers can now submit comments to a given blog post
 * Using the configured port in blogConfig.json to bind the server to the specified port
+* Displaying correct page title
 
 0.2.2 / 2013-02-23
 ====================

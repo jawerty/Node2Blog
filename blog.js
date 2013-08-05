@@ -40,15 +40,8 @@ app.configure(function () {
   //Handling of 404 and 500 pages
   app.use(function(req, res){
       res.status(400);
-      res.render("404");
+      res.render("404", {title: "Page not found"});
     });
-
-   app.use(function(error, req, res, next) {
-        res.status(500);
-        res.render("500");
-    });
-
-
 });
 
 app.configure('development', function () {
@@ -79,7 +72,7 @@ app.get('/admin/logout', function (req, res) {
 });
 
 app.get('/about', function (req, res) {
-  res.render('about', {admin: req.session.admin});
+  res.render('about', {title: "Kenshiro's Hackuto blog - About", admin: req.session.admin});
 
 });
 

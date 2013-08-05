@@ -22,7 +22,7 @@ exports.createNewPost = function(req, res){
   if(!title || title.length == 0){
       console.log("Post title provided is either null or empty. Returning an error message");
       res.status(500);
-      res.render('500');
+      res.render("500", {title: "Error"});
       return;
   }
 
@@ -33,7 +33,7 @@ exports.createNewPost = function(req, res){
   if(!body || body.length == 0){
       console.log("Post content provided is either null or empty. Returning an error message");
       res.status(500);
-      res.render('500');
+      res.render("500", {title: "Error"});
       return;
   }
   
@@ -48,14 +48,14 @@ exports.createNewPost = function(req, res){
       if(err){
           console.log("An error occurred while trying to save post [post-title=%s, error=%s]", title, err);
           res.status(500);
-          res.render('500');
+          res.render("500", {title: "Error"});
       }else{
           console.log("Successfully saved new post [post-title=%s]", title);
           postCache.loadPosts(function(err, posts){
               if(err){
                   console.log("Unable to reload posts after saving a new one [error=%s]", err);
                   res.status(500);
-                  res.render('500');
+                  res.render("500", {title: "Error"});
               }else{
                   console.log("Successfully reloaded posts [number-of-posts=%d]", posts.length);
                   res.redirect('/');

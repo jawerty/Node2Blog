@@ -11,13 +11,13 @@ exports.get = function(req, res){
         if(err){
             console.log("Unable to retrieve post [post-id=%s]", req.params.id);
             res.status(500);
-            res.render('500');
+            res.render("500", {title: "Error"});
         }else if(post){
           CommentModel.find({'post_id': identifier}).sort({date: "desc"}).exec(function(err, comments){
       		if(err){
                 console.log("An error occurred when trying to retrieve comments [post-id=%s, error=%s]", req.params.id, err);
                 res.status(500);
-                res.render("500");
+                res.render("500", {title: "Error"});
 
             } else{
       			comments = comments ? comments : [];
@@ -28,7 +28,7 @@ exports.get = function(req, res){
       }else{
             //Post does not exist - return 404
             res.status(400);
-            res.render("404");
+            res.render("404", {title: "Page not found"});
       }
     });
 }
@@ -42,7 +42,7 @@ exports.saveComment = function(req, res){
     if(!postId){
         console.log("No post id provided to save commentWritten");
         res.status(500);
-        res.render("500");
+        res.render("500", {title: "Error"});
 
         return;
     }
@@ -51,7 +51,7 @@ exports.saveComment = function(req, res){
     if(!commentWritten){
         console.log("No comment has been sent [post-id=%s]", postId);
         res.status(500);
-        res.render("500");
+        res.render("500", {title: "Error"});
 
         return;
     }
@@ -60,7 +60,7 @@ exports.saveComment = function(req, res){
     if(!commenterName){
         console.log("No name was sent [post-id=%s]", postId);
         res.status(500);
-        res.render("500");
+        res.render("500", {title: "Error"});
 
         return;
     }
@@ -81,7 +81,7 @@ exports.saveComment = function(req, res){
         if(err){
             console.log("Unable to save new commentWritten [post-id=%s, error=%s]", req.params.id, err)
             res.status(500);
-            res.render("500");
+            res.render("500", {title: "Error"});
 
         }else{
             //redirecting to post where the comment was just made
@@ -90,7 +90,5 @@ exports.saveComment = function(req, res){
         }
 
     });
-
-
 
 }
