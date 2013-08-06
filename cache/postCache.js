@@ -8,12 +8,13 @@ var app = null;
 var posts = null;
 
 PostCache.prototype.loadPosts = function(callback){
-    PostModel.find({}).sort({date: "desc"}).execFind(function(err, posts){
+    PostModel.find({}).sort({date: "desc"}).execFind(function(err, blogPosts){
         if(err){
             process.nextTick(function(){
                 callback(true);
             })
         }else{
+            posts = blogPosts ? blogPosts : [];
             if(app){
                 app.locals.posts = posts;
             }
@@ -24,6 +25,10 @@ PostCache.prototype.loadPosts = function(callback){
 
 PostCache.prototype.setApp = function (application){
     app = application;
+}
+
+PostCache.prototype.get = function(){
+    return posts;
 }
 
 var cache = new PostCache();

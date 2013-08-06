@@ -1,4 +1,7 @@
 {
+    "author": "Your blog author's name",
+    "siteUrl": "Your blog's URL (must finish with a '/' character)",
+    "iconUrl": "Your blog's icon URL",
     "name": "Your blog name",
     "subTitle": "Your blog subtitle name",
     "password": "Your mongoDB password",

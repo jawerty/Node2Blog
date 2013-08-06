@@ -2,7 +2,7 @@ var blogConfig = require("./config/blogConfig"),
     postCache = require("./cache/postCache"),
     db = require('./db/dbConnection');
 
-console.log("Blog config loaded [name=%s, subtitle=%s]", blogConfig.name, blogConfig.subTitle);
+console.log("Blog config loaded [name=%s, subtitle=%s]", blogConfig.title, blogConfig.subTitle);
 
 p = blogConfig.password;
 
@@ -11,12 +11,13 @@ admin = null;
 var error;
 
 
-var express = require('express')
-  , home = require('./routes/home')
-  , admin = require('./routes/admin')
-  , post = require('./routes/post')
-  , http = require('http')
-  , path = require('path');
+var express = require('express'),
+    home = require('./routes/home'),
+    admin = require('./routes/admin'),
+    post = require('./routes/post'),
+    misc = require("./routes/misc"),
+    http = require('http'),
+    path = require('path');
 
 var app = express();
 var store = new express.session.MemoryStore;
@@ -50,13 +51,15 @@ app.configure('development', function () {
 
 //Setting up "global locals" that will be used across the whole application
 app.locals = ({
-    blogTitle: blogConfig.name,
+    blogTitle: blogConfig.title,
     blogSubtitle: blogConfig.subTitle,
     fbAppId: blogConfig.facebookAppId
 });
 
 
-////////get methods////////
+/***********************************************************************************************************************
+ ************************************************ GET HANDLERS *********************************************************
+ ***********************************************************************************************************************/
 app.get('/', home.index);
 app.get('/admin/delete', admin.delete);
 app.get('/admin/new', admin.new);
@@ -76,8 +79,12 @@ app.get('/about', function (req, res) {
 
 });
 
+app.get('/rss.xml', misc.getRss);
 
-///////post methods////////
+
+/**********************************************************************************************************************
+*********************************************** POST HANDLERS *********************************************************
+***********************************************************************************************************************/
 app.post('/admin/delete', admin.deletePost);
 app.post('/admin/new', admin.createNewPost);
 app.post('/admin' || '/admin/', admin.admin_check_post_handler);

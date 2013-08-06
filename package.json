@@ -1,6 +1,6 @@
 {
   "name": "Node2Blog",
-  "description": "Simple and easy to use blog template for your casual blogger.",
+  "description": "Simple and easy to use blog template for the casual blogger.",
   "version": "1.0.0",
   "author": {
     "name": "kenshiro-o",
@@ -19,7 +19,8 @@
     "express": "*",
     "jade": "*",
     "mongoose": "*",
-    "mongodb": "*"
+    "mongodb": "*",
+    "rss": "0.2.0"
   }
 }
 

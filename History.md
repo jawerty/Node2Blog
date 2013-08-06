@@ -7,6 +7,7 @@
 * Readers can now submit comments to a given blog post
 * Using the configured port in blogConfig.json to bind the server to the specified port
 * Displaying correct page title
+* Added RSS support
 
 0.2.2 / 2013-02-23
 ====================
