@@ -27,7 +27,7 @@ exports.getRss = function(req, res){
             feed.item({
                 title: post.title,
                 description: post.content,
-                url: blogConfig.siteUrl + "/post" + post._id + "/" + post.friendly_link_title,
+                url: blogConfig.siteUrl + "post" + "/" + post._id + "/" + post.friendly_link_title,
                 date: dateOnly
             });
         });
