@@ -283,6 +283,34 @@ header{
     background-color: #0dd257;
 }
 
+.post-edit-form{
+    display: inline;
+    margin-right: 10px;
+}
+
+.post-delete-form{
+    display: inline;
+    margin-right: 10px;
+}
+
+.post-delete-button{
+    margin: 5px 0;
+    padding: 3px 5px;
+    background-color: #a90005;
+    border-radius: 5px;
+    font-weight: bold;
+    color: #FFF;
+}
+
+.post-edit-button{
+    margin: 5px 0;
+    padding: 3px 5px;
+    background-color: #2227a9;
+    border-radius: 5px;
+    font-weight: bold;
+    color: #FFF;
+}
+
 
 
 /***********************************************************************************************************************

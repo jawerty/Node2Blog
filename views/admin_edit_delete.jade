@@ -1,0 +1,11 @@
+extends default-layout
+
+block blog-content
+  for post in posts
+    .post-extract
+      h2.post-title #{post.title}
+      h5.post-date #{post.date.toDateString()}
+      form.post-edit-form(method='post', action="/admin/edit/#{post._id}")
+        input.post-edit-button(type="submit", value="EDIT POST")
+      form.post-delete-form(method='post', action="/admin/delete/#{post._id}")
+        input.post-delete-button(type="submit", value="DELETE POST")

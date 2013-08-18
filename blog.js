@@ -61,7 +61,7 @@ app.locals = ({
  ************************************************ GET HANDLERS *********************************************************
  ***********************************************************************************************************************/
 app.get('/', home.index);
-app.get('/admin/delete', admin.delete);
+app.get('/admin/editOrDelete', admin.showPostsToEditOrDelete);
 app.get('/admin/new', admin.new);
 
 app.get('/post/:id/:title', post.get);
@@ -85,7 +85,7 @@ app.get('/rss.xml', misc.getRss);
 /**********************************************************************************************************************
 *********************************************** POST HANDLERS *********************************************************
 ***********************************************************************************************************************/
-app.post('/admin/delete', admin.deletePost);
+app.post('/admin/delete/:id', admin.deletePost);
 app.post('/admin/new', admin.createNewPost);
 app.post('/admin' || '/admin/', admin.admin_check_post_handler);
 app.post('/admin/:id/edit', admin.editPost);

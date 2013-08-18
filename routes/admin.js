@@ -1,6 +1,7 @@
 //Prerequisites 
 var mongoose = require('mongoose');
 var PostModel = require('./../db/model/post');
+var CommentModel = require("./../db/model/comment");
 var postCache = require("./../cache/postCache");
 
 var error;
@@ -68,15 +69,9 @@ exports.createNewPost = function(req, res){
 };
 
 //deleting posts functions
-exports.delete = function(req, res){
+exports.showPostsToEditOrDelete = function(req, res){
     if (req.session.admin == 'true'){
-      PostModel.find({}).sort('-_id').execFind(function(err, posts){
-      if(posts){
-        res.render('admin_delete', { title: "Test", subTitle: "TEST", posts:posts, admin:req.session.admin});
-      }else{
-        res.render('admin_delete', { title: "Test", subTitle: "TEST", posts:null, admin:req.session.admin })
-      }
-      });
+        res.render('admin_edit_delete', { title: "Edit Or Delete Posts", subTitle: "Edit Or Delete Posts", posts: postCache.get(), admin:req.session.admin});
     }else{
       res.redirect('/')
     }
@@ -84,18 +79,39 @@ exports.delete = function(req, res){
 
 
 exports.deletePost = function(req, res){
-  var title = req.body.title;
-  var time = req.body.time;
-  console.log(title);
-    PostModel.findOne({"title": title , "date":time}, function(err, match){
-      if(match){
-        match.remove()
-        console.log('removed')
-        res.redirect('/admin/delete')
-      }else{
-        res.redirect('/')
-      }
+  var identifier = mongoose.Types.ObjectId(req.params.id);
+  if(!identifier){
+      res.status(500);
+      res.render("500", {title: "Error while trying to delete post."});
+      return;
+  }
+
+    var postToDelete = postCache.get().filter(function(post){
+        return post._id.equals(identifier);
     });
+
+    if(!postToDelete || postToDelete.length != 1){
+        res.status(500);
+        res.render("500", {title: "Error: post to delete not found"});
+    }else{
+        postToDelete = postToDelete[0];
+        CommentModel.remove({post_id: identifier}, function(err){
+            if(err){
+                console.log("An error occurred while trying to delete comments [error=" + err + "]");
+            }
+            //Now delete the post
+            postToDelete.remove(function(err){
+                if(err){
+                    console.log("Unable to remove post [id=" + identifier + "]");
+                }else{
+                    console.log("Succesfully deleted post with title: " + postToDelete.title);
+                }
+                postCache.loadPosts(function(err, postsLoaded){
+                    res.redirect("/");
+                });
+            });
+        });
+    }
 };
 exports.admin_edit = function(req, res){
   if (req.session.admin == 'true'){
