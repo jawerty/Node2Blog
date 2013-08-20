@@ -1,21 +1,23 @@
-extends layout
+extends default-layout
 
-block wrapper_content
-	script(src="../javascripts/nicEdit.js", type="text/javascript")
-	script(type='text/javascript')
-		bkLib.onDomLoaded(nicEditors.allTextAreas);
-		
-	.container
-		
-		#formNew
-			h1 Edit Post
-			form(method='post')
-				input(type='text', name='title', value='#{post.title}',placeholder='Title (do not change)') 
-				label do not change title!!
-				br
-				br
-				textarea(id='formNewTextarea', name='body', placeholder='Write your post here') #{post.content}
-				br
-				br
-				input(type="submit", value="Edit")
+block blog-content
+  script(src="/javascripts/nicEdit.js", type="text/javascript")
+  script(type='text/javascript')
+    bkLib.onDomLoaded(nicEditors.allTextAreas);
 
+  #admin-bar
+    ol
+      li
+        a(href="/admin/new") Create Post
+      li
+        a(href="/admin/editOrDelete") Edit/Delete Post
+      li
+        a(href="/admin/logout") Log out
+
+  .post-new-edit
+    h2#new-edit-post-header Edit Post
+    form(id="new-edit-post-form", method="post", action="/admin/postEdit/#{post._id}")
+      input(id="post-title-box" ,type="text", name="title", readonly="true", value="#{post.title}")
+      textarea(id="post-new-edit-content", name="body") #{post.content}
+
+      input(id="submit-edit-post-btn", type="submit", value="Edit")

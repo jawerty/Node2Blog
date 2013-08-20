@@ -88,7 +88,8 @@ app.get('/rss.xml', misc.getRss);
 app.post('/admin/delete/:id', admin.deletePost);
 app.post('/admin/new', admin.createNewPost);
 app.post('/admin' || '/admin/', admin.admin_check_post_handler);
-app.post('/admin/:id/edit', admin.editPost);
+app.post('/admin/edit/:id', admin.showPostToEdit);
+app.post("/admin/postEdit/:id", admin.editAndSavePost);
 app.post('/', home.home_post_handler);
 
 app.post('/post/:id/:friendlyLink', post.saveComment);

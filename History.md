@@ -10,6 +10,7 @@
 * Added RSS support
 * Added Google Analytics
 * Fixed issue FBK like URL
+* Added edit post feature
 
 0.2.2 / 2013-02-23
 ====================

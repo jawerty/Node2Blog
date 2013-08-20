@@ -126,16 +126,57 @@ exports.admin_edit = function(req, res){
     res.redirect('/')
   }
 };
-exports.editPost = function(req, res){
-  body = req.body.body;
-  title = req.body.title;
 
-  PostModel.findOne({title: title}, function(err, post){
-    post.content = body;
-    post.save()
-    console.log('edited post complete');
-    res.redirect('/')
-  })
+exports.editAndSavePost = function(req, res){
+    var identifier = mongoose.Types.ObjectId(req.params.id);
+    if(!identifier){
+        res.status(500);
+        res.render("500", {title: "Error while trying to edit post."});
+        return;
+    }
+
+    PostModel.update({_id: identifier}, {$set: { content: req.body.body }}, function(err){
+        if(err){
+            console.log("An error occurred when trying to update document [id= " + identifier + "]");
+            res.status(500);
+            res.render("500", {title: "Error while trying to save edited post."});
+            return;
+        }else{
+            console.log("Successfully updated post with [id=" + identifier + "]")
+            postCache.loadPosts(function(err, posts){
+                if(err){
+                    console.log("Unable to reload posts after saving a new one [error=%s]", err);
+                    res.status(500);
+                    res.render("500", {title: "Error"});
+                }else{
+                    console.log("Successfully reloaded posts [number-of-posts=%d]", posts.length);
+                    res.redirect('/');
+                }
+            });
+        }
+    }) ;
+
+}
+
+exports.showPostToEdit = function(req, res){
+    var identifier = mongoose.Types.ObjectId(req.params.id);
+    if(!identifier){
+        res.status(500);
+        res.render("500", {title: "Error while trying to edit post."});
+        return;
+    }
+
+    var postToEdit = postCache.get().filter(function(post){
+        return post._id.equals(identifier);
+    });
+
+    if(!postToEdit || postToEdit.length != 1){
+        res.status(500);
+        res.render("500", {title: "Error: post to edit not found"});
+    }else{
+        postToEdit = postToEdit[0];
+        res.render("admin_edit", {post: postToEdit});
+    }
 }
 
 
