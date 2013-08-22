@@ -1,4 +1,4 @@
-<h1>Node2Blog (fork from jawerty210 project)</h1>
+<h1>Node2Blog</h1>
 <p>Node2Blog is a simple and easy to use blog template for the casual blogger.
 For those who wish to setup an operable blog in minutes, this is the project for you.
 The blog is built with Node.js, Express.js, and Mongodb (with the mongoose driver).
@@ -180,9 +180,9 @@ $ heroku addons:add mongohq:sandbox
 
 <h1>Contributors</h1>
 <ul>
-<li><a href="https://github.com/jawerty">jawerty</a></li>
-<li><a href="https://github.com/patgannon">patgannon</a> *RSS support</li>
-<li><a href="https://github.com/kenshiro-o">kenshiro</a> Rewrite and style improvement</li>
+<li><a href="https://github.com/jawerty">jawerty</a>: Creator of Node2Blog</li>
+<li><a href="https://github.com/patgannon">patgannon</a>: RSS support</li>
+<li><a href="https://github.com/kenshiro-o">kenshiro</a>: Rewrite and style improvement</li>
 </ul>
 
 <h1>Contact</h1>
