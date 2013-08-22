@@ -1,10 +1,13 @@
 <h1>Node2Blog (fork from jawerty210 project)</h1>
-<p>Node2Blog is a simple and easy to use blog template for the casual blogger. For those who wish to setup an operable blog in minutes, this is the project for you. The blog is built with Node.js, Express.js, and Mongodb (with the mongoose driver). The instructions for quickly building a blog with the Node2Blog template is shown below.</p> 
+<p>Node2Blog is a simple and easy to use blog template for the casual blogger.
+For those who wish to setup an operable blog in minutes, this is the project for you.
+The blog is built with Node.js, Express.js, and Mongodb (with the mongoose driver).
+The instructions for quickly building a blog with the Node2Blog template is shown below.</p>
 
 <h1>Features</h1>
 <ul>
 	<li>
-		Intergration of the lightweight rich text editor, NicEdit.
+		Integration of the lightweight rich text editor, NicEdit.
 	</li>
 	<li>
 		Utilizes the Express framework.
@@ -33,6 +36,7 @@
 		And much more...
 	</li>	
 </ul>
+
 <h1>Prerequisites</h1>
 <ul>
 	<li>
@@ -56,7 +60,7 @@
 <pre>$ node blog</pre>
 <p>The blog should be running on your localhost at the 3000 port; go to <a href='http://localhost:3000'>http://localhost:3000</a> to view it. And it should look similar to the screenshot below. </p>
 
-<img src='https://raw.github.com/jawerty/Node2Blog/master/public/images/screenshot1.png'></img>
+<img src='https://raw.github.com/kenshiro-o/Node2Blog/master/docs/node2blog_main_screen.png'></img>
 
 <p>If you would like to make a post, go to the the url http://localhost:3000/admin in order to log in and use the admin settings. <b>The password is <i>'kenshiro-o'</i> by default</b>. T
 o change the password, go to the file /config/blogConfig.json and change the 'password' value</p>
