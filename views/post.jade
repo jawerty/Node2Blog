@@ -22,7 +22,7 @@ block blog-content
             p.comment-signature #{comment.name} on #{comment.date.toDateString()} at #{comment.date.toLocaleTimeString()}
 
   #social-media-container
-    .fb-like(data-href="http://kenshiro.me/post/#{post._id}/#{post.friendly_link_title}", data-width="100px", data-show-faces="false", data-send="false", data-layout="button_count")
+    .fb-like(data-href="#{blogSite}#{post._id}/#{post.friendly_link_title}", data-width="100px", data-show-faces="false", data-send="false", data-layout="button_count")
     .tweetbtn
       a(href="https://twitter.com/share", class="twitter-share-button", data-size="medium") Tweet
       script.

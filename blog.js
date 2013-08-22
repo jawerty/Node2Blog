@@ -53,7 +53,8 @@ app.configure('development', function () {
 app.locals = ({
     blogTitle: blogConfig.title,
     blogSubtitle: blogConfig.subTitle,
-    fbAppId: blogConfig.facebookAppId
+    fbAppId: blogConfig.facebookAppId,
+    blogSite: blogConfig.siteUrl
 });
 
 
@@ -61,11 +62,14 @@ app.locals = ({
  ************************************************ GET HANDLERS *********************************************************
  ***********************************************************************************************************************/
 app.get('/', home.index);
+app.get('/post/:id/:title', post.get);
+app.get('/about', function (req, res) {
+    res.render('about', {title: blogConfig.title + " - About", admin: req.session.admin});
+
+});
+
 app.get('/admin/editOrDelete', admin.showPostsToEditOrDelete);
 app.get('/admin/new', admin.new);
-
-app.get('/post/:id/:title', post.get);
-
 app.get('/admin' || '/admin/', admin.admin_check);
 app.get('/admin/:id/edit', admin.admin_edit);
 app.get('/admin/logout', function (req, res) {
@@ -74,10 +78,7 @@ app.get('/admin/logout', function (req, res) {
   res.redirect('/');
 });
 
-app.get('/about', function (req, res) {
-  res.render('about', {title: "Kenshiro's Hackuto blog - About", admin: req.session.admin});
 
-});
 
 app.get('/rss.xml', misc.getRss);
 
