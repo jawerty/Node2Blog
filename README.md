@@ -62,22 +62,24 @@ The instructions for quickly building a blog with the Node2Blog template is show
 
 <img src='https://raw.github.com/kenshiro-o/Node2Blog/master/docs/node2blog_main_screen.png'></img>
 
-<p>If you would like to make a post, go to the the url http://localhost:3000/admin in order to log in and use the admin settings. <b>The password is <i>'kenshiro-o'</i> by default</b>. T
-o change the password, go to the file /config/blogConfig.json and change the 'password' value</p>
+<p>If you would like to make a post, go to the the url http://localhost:3000/admin in order to log in and use the admin settings.
+<b>The password is <i>'Your mongoDB password'</i> by default</b>. To change the password, go to the file /config/blogConfig.json
+and change the 'password' value</p>
+
 <h4><b>*Note: You can also change the subtitle and title of the blog in the /config/blogConfig.json file (i.e st = 'Exploring the path of the Hackuto-Shinken').</b></h4>
 
-<img src='https://raw.github.com/jawerty/Node2Blog/master/public/images/screenshot2.png'></img>
+<img src='https://raw.github.com/kenshiro-o/Node2Blog/master/docs/node2blog_admin_page_login_screen.png'></img>
 
 <p>When successfully logged in, your navigation bar should have three new options appended to it...</p>
 <ol>
-	<li>Admin-New (create a new post)</li>
-	<li>Admin-Delete (delete a post)</li>
-	<li>Admin-Logout (log out of admin view)</li>
+	<li>Create Post</li>
+	<li>Edit/Delete Post</li>
+	<li>Log out</li>
 </ol>
 
-<img src='https://raw.github.com/jawerty/Node2Blog/master/public/images/screenshot3.png'></img>
+<img src='https://raw.github.com/kenshiro-o/Node2Blog/master/docs/node2blog_admin_page.png'></img>
 
-<p>Creating and deleting posts should be self-explanatory; however, creating a new static page similar to the default 'about' page is detailed below.</p>
+<p>Creating, editing and deleting posts should be self-explanatory; however, creating a new static page similar to the default 'about' page is detailed below.</p>
 <h1>Adding a static page</h1>
 <p>To create a new page, first you must go to the 'layout.jade' file in the /views folder. Add the following code under the about 'li' tag which is in the 'ol' tag in the #nav div.</p>
 <pre>
