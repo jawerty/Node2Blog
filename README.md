@@ -187,10 +187,12 @@ $ heroku addons:add mongohq:sandbox
 
 <h1>Contact</h1>
 <p><b>Contact the developers here</b>
+
 <br>
-Email: jawerty210@gmail.com<br>Website: <a href='http://jawerty.github.io'>http://jawerty.github.io</a>
+Email: <a href="mailto:jawerty210@gmail.com">jawerty210@gmail.com</a>, website: <a href='http://jawerty.github.io'>http://jawerty.github.io</a>
+
 <br>
-Email: kenshiro@kenshiro.me<br>Website: <a href='http://kenshiro.me'>http://kenshiro.me</a>
+Email: <a href="mailto:kenshiro@kenshiro.me">kenshiro@kenshiro.me</a>, website: <a href='http://kenshiro.me'>http://kenshiro.me</a>
 
 </p>
 
