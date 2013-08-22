@@ -30,10 +30,17 @@ The instructions for quickly building a blog with the Node2Blog template is show
 	<li>
 		Easy Heroku integration.
 	</li>
+
 	<li>
 		Create, edit, and delete your posts.
+	</li>
+
 	<li>
-		And much more...
+  	RSS
+  </li>
+
+	<li>
+			And much more...
 	</li>	
 </ul>
 
@@ -79,100 +86,88 @@ and change the 'password' value</p>
 
 <img src='https://raw.github.com/kenshiro-o/Node2Blog/master/docs/node2blog_admin_page.png'></img>
 
-<p>Creating, editing and deleting posts should be self-explanatory; however, creating a new static page similar to the default 'about' page is detailed below.</p>
+<p>Creating, editing and deleting posts should be self-explanatory.
+However, creating a new static page similar to the default 'about' page is detailed below.</p>
 <h1>Adding a static page</h1>
-<p>To create a new page, first you must go to the 'layout.jade' file in the /views folder. Add the following code under the about 'li' tag which is in the 'ol' tag in the #nav div.</p>
-<pre>
-<code>
-a(href="/new-page-name")
-	li new_page_name
-</code>
-</pre>
-<p>Now create a new view with whatever name you want (i.e. new_page_name.jade) in the /views folder. Add the following code to your new view</p>
-<pre>
-<code>
-extends layout
+<p>To create a new page, first you must go to the 'default-layout.jade' file in the /views folder.
+Add the following code under the "About" 'a' tag which is in the div with the id 'widget-pages'</p>
 
-block wrapper_content
-	.container
-		h1 new_page_name
-		br 
-		p random information
+<pre>
+<code>
+        #widgets
+          #widget-pages
+            h3.widget-title Pages
+            a.widget-section-link(href="/") Home
+            a.widget-section-link(href="/about") About
+            a.widget-section-link(href="/newPage") New Page
+</code>
+
+</pre>
+<p>Now create a new view with whatever name you want (i.e. newPage.jade) in the /views folder.
+Add the following code to your new view</p>
+<pre>
+<code>
+extends default-layout
+
+
+block blog-content
+  .container
+    h1 This is the new page
+    br
+    p Random information
 </code>
 </pre>
 <p>Now modify the get functions in the 'blog.js' file.</p>
 
 <label>The new modified code</label>
 <pre><code>
-////////get////////
 app.get('/', home.index);
-app.get('/admin/delete', admin.delete);
-app.get('/admin/new', admin.new);
-app.get('/post/:id', post.post_view);
-app.get('/admin' || '/admin/', admin.admin_check);
-app.get('/admin/logout', function(req,res){
-  delete req.session.admin;
-  console.log('logged-out')
-  res.redirect('/');
+app.get('/post/:id/:title', post.get);
+app.get('/about', function (req, res) {
+    res.render('about', {title: blogConfig.title + " - About", admin: req.session.admin});
+
 });
 
-app.get('/about', function(req, res) {
-  res.render('about', { title: t, admin:req.session.admin});
-      
-});
 
-//The code you added
-app.get('/new-page-name', function(req, res) {
-  res.render('new_page_name', { title: t, admin:req.session.admin});
+// The code you added
+app.get('/newPage', function(req, res){
+    res.render("newPage", {title: "New Page", admin: req.session.admin});
 });
-///////////////////
 </code></pre>
 
-<p>You should now be able to go the the '/new-page-name' route and have a view similar to what is below</p>
+<p>You should now be able to go the the '/newPage' route and have a view similar to what is below</p>
 
-<img src='https://raw.github.com/jawerty/Node2Blog/master/public/images/screenshot4.png'><img>
+<img src='https://raw.github.com/kenshiro-o/Node2Blog/master/docs/node2blog_new_page.png'><img>
 
 <h1>Adding a side widget</h1>
-<p>In order to add a side widget, or simply a box under the "Latest Posts" box, you must go to the file 'layout.jade' and insert this line </p>
+<p>In order to add a side widget, you must go to the file 'default-layout.jade' and insert your widget inside
+the div with id "widgets" </p>
 <pre>
 <code>
-.widget
-</code>
+          #widgets
 </pre>
-<p>Exactly where it is inserted below</p>
+</code>
+
+
+
+<p>For instance the "Latest Posts widgets looks like this</p>
 <pre>
 <code>
-#box
-	#content
-		#wrapper
-			block wrapper_content
-		if(typeof posts == 'undefined')
-			.widget
-				a(href='/') Back to home
-		else
-			.widget
-				p(style='font-size: 150%; font-weight:bold; border-bottom: 1px solid #b1b1b1;padding-bottom: 5px;margin-bottom: 4px;') Latest Posts
-					br
-					pre
-					for post in posts
-						table(id='post_table', style='padding-top:10px;border-bottom:1px solid #ddd')
-							tr
-								td
-									#left
-										label(style='font-size: 130%;') -&nbsp&nbsp
-								td
-									#right
-										a(href='/post/#{post._id}/#{post.title_sub}', style='font-size: 130%;')=  post.title
-							tr(style='height:10px;')
-		<b>.widget</b> //the inserted code
+          #widget-posts
+            h3.widget-title Latest Posts
+            for post in posts
+              a.widget-section-link(href="/post/#{post._id}/#{post.friendly_link_title}") #{post.title}
 </code>
 </pre>
-<p>Now you can input any sort of information you'd like in your new widget box.<b>*Note: Without any posts on your blog, the widget boxes will not be positioned adequately.</b></p>
+
+<p>Now you can input any sort of information you'd like in your new widget box. Remember that you can add any style
+you want to your widgets by editing the <strong>style.css</strong> file
+
+<br>
+<h3>Congratulations! You now have a working blog suitable to your basic blogger needs.</h3>
 <br>
 <br>
-<h3>Congratulations you now have a working blog suitable to your basic blogger needs.</h3>
-<br>
-<br>
+
 <h1>Optional: Heroku Setup</h1>
 <h4><b>*Note: You must have a heroku account along with the <a href='https://toolbelt.heroku.com/'>Heroku Toolbelt</a> to follow this part of the tutorial</b></h4>
 <p>Simply follow the directions on <a href='https://devcenter.heroku.com/articles/nodejs'>this</a> page to deploy the blog with heroku. However, in order to use MongoDB, you must enter the following command in the directory of your project</p>
@@ -182,8 +177,22 @@ $ heroku addons:add mongohq:sandbox
 </code>
 </pre>
 <p>This addon is a <b>free</b> starter package for running a server with a MongoDB backend by MongoHQ. This is essentially all you need to setup the basic functions to your new blog.</p>
+
+<h1>Contributors</h1>
+<ul>
+<li><a href="https://github.com/jawerty">jawerty</a></li>
+<li><a href="https://github.com/patgannon">patgannon</a> *RSS support</li>
+<li><a href="https://github.com/kenshiro-o">kenshiro</a> Rewrite and style improvement</li>
+</ul>
+
 <h1>Contact</h1>
-<p><b>Contact the developer here</b><br>Email: kenshiro@kenshiro.me<br>Website: <a href='http://kenshiro.me'>http://kenshiro.me</a></p>
+<p><b>Contact the developers here</b>
+<br>
+Email: jawerty210@gmail.com<br>Website: <a href='http://jawerty.github.io'>http://jawerty.github.io</a>
+<br>
+Email: kenshiro@kenshiro.me<br>Website: <a href='http://kenshiro.me'>http://kenshiro.me</a>
+
+</p>
 
 <h1>MIT LICENSE</h1>
 The MIT License (MIT) Copyright (c) 2012 Jared Wright
