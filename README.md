@@ -186,6 +186,7 @@ the basic functions to your new blog.
 # Contributors 
 * [jawerty](https://github.com/jawerty)
 * [patgannon](https://github.com/patgannon) *RSS support
+* [kenshio-o](https://github.com/kenshiro-o) *Upcoming codebase restructuring
 
 # Contact
 
