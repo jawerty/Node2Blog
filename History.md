@@ -1,4 +1,9 @@
-1.0.0
+1.0.1
+====================
+* Removed MongoDB ID from post URLs so as to make them more SEO-friendly
+* Added projects page, removed some unused jade template and improved style
+
+1.0.0 / 22/08/2013
 ====================
 * MAJOR refactoring of API (in progress).
 * Revamping of layout as well (in progress).

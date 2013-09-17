@@ -62,9 +62,13 @@ app.locals = ({
  ************************************************ GET HANDLERS *********************************************************
  ***********************************************************************************************************************/
 app.get('/', home.index);
-app.get('/post/:id/:title', post.get);
+app.get('/post/:title', post.get);
 app.get('/about', function (req, res) {
     res.render('about', {title: blogConfig.title + " - About", admin: req.session.admin});
+
+});
+app.get('/projects', function (req, res) {
+    res.render('projects', {title: blogConfig.title + " - Projects", admin: req.session.admin});
 
 });
 

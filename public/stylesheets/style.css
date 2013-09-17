@@ -428,22 +428,25 @@ footer{
     font-weight: bold;
 }
 
-a.footer-link:link{
+
+/* Misc */
+
+a.no-link:link{
     color: #2227a9;
     text-decoration: none;
 }
 
-a.footer-link:visited{
+a.no-link:visited{
     color: #2227a9;
     text-decoration: none;
 }
 
-a.footer-link:hover{
+a.no-link:hover{
     color: #7b3ab7;
     text-decoration: none;
 }
 
-a.footer-link:active{
+a.no-link:active{
     color: #7b3ab7;
     text-decoration: none;
 }

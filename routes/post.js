@@ -1,39 +1,36 @@
 //PREREQUISITES
 var mongoose = require('mongoose');
-var PostModel = require("./../db/model/post");
 var CommentModel = require('./../db/model/comment');
+var postCache = require("./../cache/postCache");
 
 //Single post view
 exports.get = function(req, res){
-    var identifier = mongoose.Types.ObjectId(req.params.id);
+    var friendLinkTitle = req.params.title;
+    var posts = postCache.get();
+    var matchedPosts = posts.filter(function(post){
+                        return post.friendly_link_title === friendLinkTitle;
+                    });
 
-	PostModel.findById(identifier, function(err, post){
-        if(err){
-            console.log("Unable to retrieve post [post-id=%s]", req.params.id);
-            res.status(500);
-            res.render("500", {title: "Error"});
-        }else if(post){
-          CommentModel.find({'post_id': identifier}).sort({date: "desc"}).exec(function(err, comments){
-      		if(err){
+    if (matchedPosts.length == 0){
+        console.log("Unable to retrieve post [post-link=%s]", friendLinkTitle);
+        //Post does not exist - return 404
+        res.status(400);
+        res.render("404", {title: "Page not found"});
+    }else{
+        var post = matchedPosts[0];
+        CommentModel.find({'post_id': post._id}).sort({date: "desc"}).exec(function(err, comments){
+            if(err){
                 console.log("An error occurred when trying to retrieve comments [post-id=%s, error=%s]", req.params.id, err);
                 res.status(500);
                 res.render("500", {title: "Error"});
 
             } else{
-      			comments = comments ? comments : [];
+                comments = comments ? comments : [];
                 res.render("post", {title :post.title, post: post, comments: comments, admin:req.session.admin});
-      		}
-      	});
-        
-      }else{
-            //Post does not exist - return 404
-            res.status(400);
-            res.render("404", {title: "Page not found"});
-      }
-    });
+            }
+        });
+    }
 }
-
-
 
 
 exports.saveComment = function(req, res){

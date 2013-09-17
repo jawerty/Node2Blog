@@ -4,7 +4,7 @@ block blog-content
   for post in posts
     .post-extract
       h2.post-title
-        a(href="/post/#{post._id}/#{post.friendly_link_title}") #{post.title}
+        a(href="/post/#{post.friendly_link_title}") #{post.title}
       h5.post-date #{post.date.toDateString()}
       - var content = post.content
       .post-content!= content
