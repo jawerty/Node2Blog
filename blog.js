@@ -1,3 +1,7 @@
+ //change the title variable to your blog title
+ //change the subTitle variable to your blog sub-title
+ //change the password variable to your admin password
+ 
  title = 'Node2Blog';
  subTitle = 'A simple blog made in Node.js'
  password = 'narwhal';
@@ -14,9 +18,7 @@ var post_model = mongoose.model('post');
 var rss = require('rss');
 var feedTime = null;
 
- //change title to whatever you want your blog to be called
- //change subTitle to whatever you want your blog to be called
- //change password to whatever you want your password to be
+
 
  admin = null;
  var error;
